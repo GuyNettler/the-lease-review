@@ -124,15 +124,9 @@ ${analysis.summary}`);
   function sectionFromArray(title, arr) {
     if (!Array.isArray(arr) || arr.length === 0) return '';
     const items = arr
-      .map((i, idx) => `(${idx + 1}) ${i.clause}
-- Severity: ${i.severity}
-- Explanation: ${i.explanation}${i.recommendation ? `
-- Recommendation: ${i.recommendation}` : ''}`)
-      .join('
-
-');
-    return `${title}:
-${items}`;
+      .map((i, idx) => `(${idx + 1}) ${i.clause}\n- Severity: ${i.severity}\n- Explanation: ${i.explanation}${i.recommendation ? `\n- Recommendation: ${i.recommendation}` : ''}`)
+      .join('\n\n');
+    return `${title}:\n${items}`;
   }
 
   const importantStr = sectionFromArray('Important clauses', analysis?.important);
@@ -153,9 +147,7 @@ Thank you,
 The Lease Review team`
   );
 
-  const text = sections.filter(Boolean).join('
-
-');
+  const text = sections.filter(Boolean).join('\n\n');
   const subject = 'Your lease review – copy of results';
   return { to: toEmail, subject, text };
 }
