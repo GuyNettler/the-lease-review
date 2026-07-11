@@ -278,9 +278,12 @@ async function getOrder(orderID) {
 console.log('[vision] Initializing Google Cloud Vision client');
 const visionClient = new ImageAnnotatorClient();
 
+// Storage namespace so TLR files stay separate from Schirut in the shared Firebase project.
+const STORAGE_PREFIX = process.env.TLR_STORAGE_PREFIX || 'tlr';
+
 async function ocrPdfFromGcs(bucket, sourcePath) {
   const bucketName = bucket.name;
-  const outputPrefix = `ocr-output/${Date.now()}_${Math.random().toString(36).slice(2)}/`;
+  const outputPrefix = `${STORAGE_PREFIX}/ocr-output/${Date.now()}_${Math.random().toString(36).slice(2)}/`;
   const destinationUri = `gs://${bucketName}/${outputPrefix}`;
   const sourceUri = `gs://${bucketName}/${sourcePath}`;
 
@@ -330,14 +333,15 @@ async function ocrPdfFromGcs(bucket, sourcePath) {
 }
 
 // ---------------- Rejected-file archival ----------------
-// Moves an uploaded file that failed validation from `contracts/...` to
-// `rejected/<reason>/...` and writes a sidecar `<path>.meta.json` with
+// Moves an uploaded file that failed validation from `tlr/contracts/...` to
+// `tlr/rejected/<reason>/...` and writes a sidecar `<path>.meta.json` with
 // diagnostic context, so rejections can be reviewed manually later.
 async function archiveRejectedFile({ bucket, fileRef, sourcePath, reason, context }) {
   try {
-    const destPath = sourcePath.startsWith('contracts/')
-      ? sourcePath.replace(/^contracts\//, `rejected/${reason}/`)
-      : `rejected/${reason}/${sourcePath}`;
+    const contractsRoot = `${STORAGE_PREFIX}/contracts/`;
+    const destPath = sourcePath.startsWith(contractsRoot)
+      ? sourcePath.replace(contractsRoot, `${STORAGE_PREFIX}/rejected/${reason}/`)
+      : `${STORAGE_PREFIX}/rejected/${reason}/${sourcePath}`;
     await fileRef.move(destPath);
     console.log('[storage] archived rejected file', { from: sourcePath, to: destPath, reason });
 
@@ -637,7 +641,7 @@ app.post("/upload", express.raw({ type: "*/*", limit: "25mb" }), async (req, res
     const bucket = storage.bucket();
     // Sanitize email for filename usage
     const sanitizedEmail = String(userEmail).toLowerCase().replace(/[^a-z0-9@._+-]/g, "_").slice(0, 80);
-    const storageFileName = `contracts/${userId}/${Date.now()}__${sanitizedEmail}${ext}`;
+    const storageFileName = `${STORAGE_PREFIX}/contracts/${userId}/${Date.now()}__${sanitizedEmail}${ext}`;
     const fileRef = bucket.file(storageFileName);
 
     console.log('[storage] saving original file', { storageFileName, ext });
@@ -910,5 +914,6 @@ app.post("/upload", express.raw({ type: "*/*", limit: "25mb" }), async (req, res
   }
 });
 
-// Export Firebase Function v2
-export const api = onRequest(app);
+// Separate Cloud Function name so this can share the Schirut Firebase project
+// without colliding with Schirut's existing `api` function.
+export const tlrApi = onRequest(app);

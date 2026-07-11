@@ -8,7 +8,7 @@ This updates the secret reference without touching the Docker image.
 
 ### Step 1: Find your Cloud Run service name
 ```bash
-gcloud run services list --project=the-lease-review --region=us-central1
+gcloud run services list --project=schirut-3ca36 --region=us-central1
 ```
 
 ### Step 2: Update the service to use the secret from Secret Manager
@@ -16,7 +16,7 @@ gcloud run services list --project=the-lease-review --region=us-central1
 # Replace 'api' with your actual service name from Step 1
 # Replace 'GEMINI_API_KEY' with your actual secret name in Secret Manager
 gcloud run services update api \
-  --project=the-lease-review \
+  --project=schirut-3ca36 \
   --region=us-central1 \
   --update-secrets=GEMINI_API_KEY=GEMINI_API_KEY:latest
 ```
@@ -24,7 +24,7 @@ gcloud run services update api \
 **OR** if you need to set it as an environment variable from the secret:
 ```bash
 gcloud run services update api \
-  --project=the-lease-review \
+  --project=schirut-3ca36 \
   --region=us-central1 \
   --set-secrets=GEMINI_API_KEY=GEMINI_API_KEY:latest
 ```
@@ -32,7 +32,7 @@ gcloud run services update api \
 ### Step 3: Verify the update
 ```bash
 gcloud run services describe api \
-  --project=the-lease-review \
+  --project=schirut-3ca36 \
   --region=us-central1 \
   --format="value(spec.template.spec.containers[0].env)"
 ```
@@ -44,11 +44,11 @@ If you need to redeploy the entire function (which will create a new Docker imag
 ### Step 1: Make sure your secret is updated in Secret Manager
 ```bash
 # View your secret (to verify it exists)
-gcloud secrets list --project=the-lease-review
+gcloud secrets list --project=schirut-3ca36
 
 # Update the secret value if needed
 gcloud secrets versions add GEMINI_API_KEY \
-  --project=the-lease-review \
+  --project=schirut-3ca36 \
   --data-file=- <<< "your-new-api-key-value"
 ```
 
@@ -57,13 +57,13 @@ gcloud secrets versions add GEMINI_API_KEY \
 cd /Users/guymain/Desktop/the-lease-review/backend
 
 # Set the secret reference in Firebase Functions config
-firebase functions:secrets:set GEMINI_API_KEY --project=the-lease-review
+firebase functions:secrets:set GEMINI_API_KEY --project=schirut-3ca36
 ```
 
 ### Step 3: Deploy the function (this will create a new Docker image)
 ```bash
 cd functions
-firebase deploy --only functions:api --project=the-lease-review
+firebase deploy --only functions:tlrApi --project=schirut-3ca36
 ```
 
 ## Solution 3: Update Secret via Console (Alternative)
@@ -86,7 +86,7 @@ If you prefer using the GCP Console:
 The service might be configured with a specific image tag. Check the current image:
 ```bash
 gcloud run services describe api \
-  --project=the-lease-review \
+  --project=schirut-3ca36 \
   --region=us-central1 \
   --format="value(spec.template.spec.containers[0].image)"
 ```
@@ -99,7 +99,7 @@ If it shows `version_1` or similar, you may need to:
 ```bash
 gcloud artifacts docker images list \
   us-central1-docker.pkg.dev/the-lease-review/gcf-artifacts \
-  --project=the-lease-review
+  --project=schirut-3ca36
 ```
 
 ## Quick Fix Script

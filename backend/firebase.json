@@ -2,7 +2,7 @@
   "functions": [
     {
       "source": "functions",
-      "codebase": "default",
+      "codebase": "tlr",
       "ignore": [
         "node_modules",
         ".git",
@@ -12,16 +12,5 @@
       ],
       "predeploy": []
     }
-  ],
-  "hosting": {
-    "source": "frontend",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "frameworksBackend": {
-      "region": "us-central1"
-    }
-  }
+  ]
 }

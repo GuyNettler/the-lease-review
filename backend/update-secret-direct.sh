@@ -3,7 +3,7 @@
 # Direct script to update GEMINI_API_KEY secret in Cloud Run
 # This avoids the Docker image rebuild issue
 
-PROJECT_ID="the-lease-review"
+PROJECT_ID="schirut-3ca36"
 REGION="us-central1"
 
 echo "Finding Cloud Run services..."
@@ -13,10 +13,10 @@ if [ -z "$SERVICES" ]; then
     echo "No Cloud Run services found. Checking if this is a Firebase Functions deployment..."
     echo ""
     echo "For Firebase Functions v2, the service name is usually:"
-    echo "  the-lease-review-us-central1-api"
+    echo "  tlrApi"
     echo ""
     read -p "Enter your Cloud Run service name (or press Enter to use default): " SERVICE_NAME
-    SERVICE_NAME=${SERVICE_NAME:-"the-lease-review-us-central1-api"}
+    SERVICE_NAME=${SERVICE_NAME:-"tlrApi"}
 else
     echo "Found services:"
     echo "$SERVICES"

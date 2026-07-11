@@ -4,8 +4,8 @@
 
 set -e
 
-PROJECT_ID="the-lease-review"
-FUNCTION_NAME="api"
+PROJECT_ID="schirut-3ca36"
+FUNCTION_NAME="tlrApi"
 
 echo "🚀 Deploying Firebase Function: $FUNCTION_NAME"
 echo ""

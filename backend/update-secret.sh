@@ -5,9 +5,9 @@
 
 set -e
 
-PROJECT_ID="the-lease-review"
+PROJECT_ID="schirut-3ca36"
 REGION="us-central1"
-SERVICE_NAME="api"  # Adjust if your service name is different
+SERVICE_NAME="tlrapi"  # Adjust if your service name is different
 SECRET_NAME="GEMINI_API_KEY"  # Adjust if your secret name is different
 
 echo "Updating Cloud Run service to use secret from Secret Manager..."

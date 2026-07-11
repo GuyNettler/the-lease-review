@@ -3,33 +3,48 @@
 US English apartment lease review product — upload a lease, pay **$19.99 USD**, get an AI report in minutes.
 
 - **Site:** https://www.theleasereview.com  
+- **Repo:** https://github.com/GuyNettler/the-lease-review  
 - **Stack:** Next.js (Vercel) + Firebase Functions + PayPal + Gemini + SMTP  
-- **Sibling product pattern:** cloned from Schirut’s authorize → analyze → capture pipeline
+- **Sibling:** shares Firebase project `schirut-3ca36` with [Schirut](https://github.com/GuyNettler/schirut), isolated by function name + storage prefix
 
 ## Repo layout
 
 ```
 the-lease-review/
   frontend/   # Next.js 15 app
-  backend/    # Firebase Functions (Express `api`)
+  backend/    # Firebase Functions (Express `tlrApi`)
 ```
+
+## Shared Firebase (with Schirut)
+
+| Concern | Schirut | The Lease Review |
+|---------|---------|------------------|
+| Project | `schirut-3ca36` | same |
+| Function | `api` | `tlrApi` (codebase `tlr`) |
+| Storage | `contracts/…`, `rejected/…` | `tlr/contracts/…`, `tlr/rejected/…` |
+| PayPal | ILS ~20 | USD 19.99 (separate Cloud Run env) |
+| Frontend URL | `…/api` | `https://us-central1-schirut-3ca36.cloudfunctions.net/tlrApi` |
+
+Always deploy with `--only functions:tlrApi` so Schirut’s `api` is untouched.
 
 ## Local frontend
 
 ```bash
 cd frontend
-cp .env.example .env.local   # fill values
+cp .env.example .env.local   # fill values (reuse Schirut web config OK)
 npm install
 npm run dev
 ```
 
 ## Backend deploy
 
-1. Create Firebase project ID `the-lease-review` (or update `.firebaserc`).
-2. Enable Anonymous Auth + Cloud Storage + Cloud Functions.
-3. Set secrets / env for the `api` function (see below).
-4. From `backend/functions`: `npm install`
-5. From `backend`: `firebase deploy --only functions:api --project=the-lease-review`
+```bash
+cd backend/functions && npm install
+cd ..
+npx firebase-tools@latest deploy --only functions:tlrApi --project=schirut-3ca36
+```
+
+Then set **PayPal + SMTP** env vars on the `tlrApi` Cloud Run service (USD). `GEMINI_API_KEY` can stay the shared Secret Manager secret.
 
 ## Environment variables
 
@@ -37,57 +52,36 @@ npm run dev
 
 | Variable | Purpose |
 |----------|---------|
-| `NEXT_PUBLIC_FIREBASE_API_KEY` | Firebase web config |
-| `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN` | |
-| `NEXT_PUBLIC_FIREBASE_PROJECT_ID` | |
-| `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET` | |
-| `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID` | |
-| `NEXT_PUBLIC_FIREBASE_APP_ID` | |
-| `NEXT_PUBLIC_FIREBASE_FUNCTIONS_URL` | e.g. `https://us-central1-the-lease-review.cloudfunctions.net/api` |
-| `NEXT_PUBLIC_PAYPAL_CLIENT_ID` | PayPal REST app client ID |
+| `NEXT_PUBLIC_FIREBASE_*` | Same project as Schirut (`schirut-3ca36`) |
+| `NEXT_PUBLIC_FIREBASE_FUNCTIONS_URL` | `https://us-central1-schirut-3ca36.cloudfunctions.net/tlrApi` |
+| `NEXT_PUBLIC_PAYPAL_CLIENT_ID` | PayPal REST app client ID (USD) |
 
-### Backend (Firebase Functions env / secrets)
+### Backend (Cloud Run env / secrets for `tlrApi`)
 
 | Variable | Default / notes |
 |----------|-----------------|
-| `GEMINI_API_KEY` | Required (Secret Manager recommended) |
+| `GEMINI_API_KEY` | Shared Secret Manager OK |
 | `PAYPAL_ENV` | `sandbox` or `live` |
-| `PAYPAL_CLIENT_ID` / `PAYPAL_CLIENT_SECRET` | Live |
+| `PAYPAL_CLIENT_ID` / `PAYPAL_CLIENT_SECRET` | Live USD app |
 | `PAYPAL_SANDBOX_CLIENT_ID` / `PAYPAL_SANDBOX_CLIENT_SECRET` | Sandbox |
 | `PAYPAL_EXPECTED_AMOUNT` | `19.99` |
 | `PAYPAL_EXPECTED_CURRENCY` | `USD` |
 | `SMTP_USER` / `SMTP_PASS` | Outbound email |
-| `SMTP_HOST` | `smtp.gmail.com` |
-| `SMTP_PORT` | `465` |
-| `SMTP_FROM` | Optional from-address |
+| `SMTP_HOST` / `SMTP_PORT` | `smtp.gmail.com` / `465` |
+| `SMTP_FROM` | Optional |
+| `TLR_STORAGE_PREFIX` | `tlr` |
 
-Contact/review inbox in code: `hello@theleasereview.com` (update in `backend/functions/index.js` if you use another mailbox).
+Contact/review inbox: `hello@theleasereview.com`.
 
 ## Manual provisioning checklist
 
-1. **Domain** — Buy/connect `theleasereview.com` → point DNS to Vercel (`www` + apex).
-2. **Firebase** — New project ID `the-lease-review`, Anonymous Auth, Storage, Functions (`us-central1`).
-   - If `gcloud projects create` fails with **project quota exceeded**, delete an unused GCP project (or [request a quota increase](https://support.google.com/code/contact/project_quota_increase)), then retry.
-3. **PayPal** — Business app with USD; sandbox first, then live.
-4. **Gemini** — API key in Secret Manager / function env.
-5. **SMTP** — Gmail app password or domain mailbox (`hello@theleasereview.com`).
-6. **Vercel** — `npx vercel login`, then import this repo’s `frontend/`, set env vars, production domain.
-7. **Search Console** — Verify domain, submit `https://www.theleasereview.com/sitemap.xml`.
-
-### After Firebase project exists
-
-```bash
-# Enable APIs + add Firebase web app (console or CLI), then:
-cd /Users/guymain/Desktop/the-lease-review/backend
-firebase functions:secrets:set GEMINI_API_KEY --project=the-lease-review
-cd functions && npm install
-npx firebase-tools@latest deploy --only functions:api --project=the-lease-review
-
-# Set PayPal + SMTP on the Cloud Run service (api), then:
-cd /Users/guymain/Desktop/the-lease-review/frontend
-cp .env.example .env.local   # fill Firebase web config + PayPal client ID + functions URL
-npx vercel --prod            # root directory = frontend
-```
+1. **Domain** — Buy/connect `theleasereview.com` → DNS to Vercel (`www` + apex).
+2. **Firebase** — Reuse `schirut-3ca36`; deploy `tlrApi`; optional second web app for TLR.
+3. **PayPal** — USD Business app; sandbox first, then live (separate from Schirut ILS).
+4. **Gemini** — Already on Schirut; bind secret to `tlrApi` if needed.
+5. **SMTP** — Mailbox for `hello@theleasereview.com` (or Gmail app password).
+6. **Vercel** — Import this repo, root `frontend/`, set env vars, attach domain.
+7. **Search Console** — Verify domain; submit sitemap.
 
 ## Payment flow
 
@@ -103,6 +97,6 @@ This product provides **informational** lease summaries only and is **not legal 
 
 ## Smoke test (sandbox)
 
-1. Set `PAYPAL_ENV=sandbox` and sandbox client credentials.
+1. Set `PAYPAL_ENV=sandbox` and sandbox client credentials on `tlrApi`.
 2. Upload a sample US residential lease PDF.
 3. Confirm JSON analysis, email delivery, and `/upload/done`.

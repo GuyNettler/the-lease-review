@@ -16,7 +16,7 @@ npm install -g firebase-tools@latest
 sudo npm install -g firebase-tools@latest
 
 # Or use npx (no global install needed):
-npx firebase-tools@latest deploy --only functions:api --project=the-lease-review
+npx firebase-tools@latest deploy --only functions:tlrApi --project=schirut-3ca36
 ```
 
 ### Step 2: Clear Firebase Cache
@@ -35,7 +35,7 @@ Make sure your `firebase.json` doesn't have any invalid keys. The current one lo
 
 ```bash
 cd /Users/guymain/Desktop/the-lease-review/backend/functions
-firebase deploy --only functions:api --project=the-lease-review
+firebase deploy --only functions:tlrApi --project=schirut-3ca36
 ```
 
 ## Alternative: Use the Deployment Script
@@ -51,7 +51,7 @@ cd /Users/guymain/Desktop/the-lease-review/backend
 
 ```bash
 cd /Users/guymain/Desktop/the-lease-review/backend/functions
-npx firebase-tools@latest deploy --only functions:api --project=the-lease-review
+npx firebase-tools@latest deploy --only functions:tlrApi --project=schirut-3ca36
 ```
 
 ### Option B: Check Firebase CLI Version
@@ -67,7 +67,7 @@ Sometimes deploying from the backend directory (not functions) works better:
 
 ```bash
 cd /Users/guymain/Desktop/the-lease-review/backend
-firebase deploy --only functions:api --project=the-lease-review
+firebase deploy --only functions:tlrApi --project=schirut-3ca36
 ```
 
 ## Setting Up Secrets
@@ -76,16 +76,16 @@ Before deploying, make sure your secret is configured:
 
 ```bash
 # Check if secret exists
-gcloud secrets list --project=the-lease-review --filter="name:GEMINI_API_KEY"
+gcloud secrets list --project=schirut-3ca36 --filter="name:GEMINI_API_KEY"
 
 # If it doesn't exist, create it:
 gcloud secrets create GEMINI_API_KEY \
-  --project=the-lease-review \
+  --project=schirut-3ca36 \
   --data-file=- <<< "your-api-key-value"
 
 # Or add a new version:
 gcloud secrets versions add GEMINI_API_KEY \
-  --project=the-lease-review \
+  --project=schirut-3ca36 \
   --data-file=- <<< "your-new-api-key-value"
 ```
 
@@ -93,6 +93,6 @@ Then configure Firebase to use it:
 
 ```bash
 cd /Users/guymain/Desktop/the-lease-review/backend
-firebase functions:secrets:set GEMINI_API_KEY --project=the-lease-review
+firebase functions:secrets:set GEMINI_API_KEY --project=schirut-3ca36
 ```
 
