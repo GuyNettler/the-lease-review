@@ -1,0 +1,2 @@
+import LandingPage from "@/components/LandingPage";
+export default function SigningTodayPage() { return <LandingPage eyebrow="SIGNING TODAY?" title="Take a final look before you commit" subtitle="Upload your lease for a structured overview of the terms you may want to understand or ask about before signing." ctaLabel="Get a $19.99 review" bullets={[{ title: "Don't rush the fine print", body: "Check deposit, fee, and termination terms before committing." }, { title: "Bring better questions", body: "Use the review to prepare questions for your landlord or attorney." }]} />; }

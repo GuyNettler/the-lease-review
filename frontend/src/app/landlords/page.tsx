@@ -1,0 +1,2 @@
+import LandingPage from "@/components/LandingPage";
+export default function LandlordsPage() { return <LandingPage eyebrow="FOR LANDLORDS" title="See your lease through a renter's eyes" subtitle="Use a clear, informational review to spot wording that may create questions or confusion for prospective tenants." ctaLabel="Review a lease for $19.99" bullets={[{ title: "Improve clarity", body: "Understand which clauses may need clearer communication." }, { title: "Prepare for questions", body: "Know the topics renters may want to discuss before signing." }]} />; }

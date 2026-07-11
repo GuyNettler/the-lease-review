@@ -1,0 +1,5 @@
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { guides } from "@/lib/guides";
+export function generateStaticParams() { return guides.map(({ slug }) => ({ slug })); }
+export default async function GuidePage({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; const guide = guides.find((item) => item.slug === slug); if (!guide) notFound(); return <main className="min-h-screen bg-white px-6 py-14 text-left"><article className="mx-auto max-w-3xl"><Link href="/guides" className="font-semibold text-primary">← All guides</Link><p className="mt-8 text-sm font-bold uppercase text-primary">{guide.category.replaceAll("-", " ")}</p><h1 className="mt-2 text-4xl font-extrabold">{guide.title}</h1><p className="mt-4 text-lg text-slate-700">{guide.excerpt}</p><ol className="mt-8 space-y-4">{guide.content.map((item, index) => <li key={item} className="rounded-xl bg-primary-light p-5"><strong>{index + 1}. </strong>{item}</li>)}</ol><p className="mt-8 text-sm text-slate-600">This guide is general information, not legal advice.</p></article></main>; }

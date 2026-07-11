@@ -1,0 +1,2 @@
+import LandingPage from "@/components/LandingPage";
+export default function StudentsPage() { return <LandingPage eyebrow="FOR STUDENT RENTERS" title="Understand your first apartment lease" subtitle="Before you sign a campus-area lease, get a clear overview of fees, renewal terms, roommates, and responsibilities." ctaLabel="Review my lease for $19.99" bullets={[{ title: "Budget with confidence", body: "See recurring fees and payment terms in one place." }, { title: "Plan your next step", body: "Identify notice and renewal deadlines before they surprise you." }]} />; }

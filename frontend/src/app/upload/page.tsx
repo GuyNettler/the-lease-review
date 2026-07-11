@@ -1,0 +1,50 @@
+"use client";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { AlertTriangle, FileText, Loader2, ReceiptText, UploadCloud, Wand2 } from "lucide-react";
+import { signInAnonymouslyIfNeeded } from "@/firebaseClient";
+import PayPalButton from "@/components/PayPalButton";
+
+type Severity = "high" | "medium" | "low";
+type Issue = { clause: string; explanation: string; severity: Severity; recommendation?: string };
+type Analysis = { important?: Issue[]; tenant_issues?: Issue[]; landlord_issues?: Issue[]; missing_or_unclear?: Issue[]; summary?: string };
+
+function Stepper({ step }: { step: number }) {
+  const steps = [[<UploadCloud key="upload" size={18} />, "Upload"], [<ReceiptText key="payment" size={18} />, "Payment"], [<Wand2 key="analysis" size={18} />, "Analysis"], [<FileText key="results" size={18} />, "Results"]];
+  return <div className="flex w-full items-center justify-center gap-2 text-sm">{steps.map(([icon, label], index) => <div key={String(label)} className="flex items-center gap-1"><span className={`flex h-8 w-8 items-center justify-center rounded-full border-2 ${step === index + 1 ? "border-primary bg-primary text-white" : step > index + 1 ? "border-green-500 bg-green-500 text-white" : "border-gray-200 bg-gray-100 text-gray-400"}`}>{icon}</span><span className={step === index + 1 ? "font-bold text-primary" : "text-gray-500"}>{label}</span>{index < 3 && <span className="ml-1 text-gray-300">—</span>}</div>)}</div>;
+}
+
+export default function UploadPage() {
+  const router = useRouter(); const inputRef = useRef<HTMLInputElement>(null);
+  const [file, setFile] = useState<File | null>(null); const [email, setEmail] = useState(""); const [customPrompt, setCustomPrompt] = useState("");
+  const [userId, setUserId] = useState<string | null>(null); const [authLoading, setAuthLoading] = useState(true); const [paying, setPaying] = useState(false); const [orderID, setOrderID] = useState<string | null>(null);
+  const [proceedToPayment, setProceedToPayment] = useState(false); const [analysis, setAnalysis] = useState<Analysis | null>(null); const [error, setError] = useState<string | null>(null);
+  function openIdb() { return new Promise<IDBDatabase>((resolve, reject) => { const request = indexedDB.open("tlr-store", 1); request.onupgradeneeded = () => { if (!request.result.objectStoreNames.contains("kv")) request.result.createObjectStore("kv"); }; request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); }); }
+  async function idbSet(key: string, value: unknown) { const db = await openIdb(); await new Promise<void>((resolve, reject) => { const tx = db.transaction("kv", "readwrite"); tx.objectStore("kv").put(value, key); tx.oncomplete = () => resolve(); tx.onerror = () => reject(tx.error); }); db.close(); }
+  async function idbGet<T>(key: string) { const db = await openIdb(); const value = await new Promise<T | undefined>((resolve, reject) => { const req = db.transaction("kv", "readonly").objectStore("kv").get(key); req.onsuccess = () => resolve(req.result as T | undefined); req.onerror = () => reject(req.error); }); db.close(); return value; }
+  async function idbDel(key: string) { const db = await openIdb(); await new Promise<void>((resolve, reject) => { const tx = db.transaction("kv", "readwrite"); tx.objectStore("kv").delete(key); tx.oncomplete = () => resolve(); tx.onerror = () => reject(tx.error); }); db.close(); }
+  async function persist(selected: File) { try { await idbSet("pendingUpload", { name: selected.name, type: selected.type || "application/octet-stream", data: await selected.arrayBuffer() }); } catch {} }
+  useEffect(() => { signInAnonymouslyIfNeeded().then((user) => setUserId(user.uid)).catch(() => setError("We could not connect you to the service. Please refresh and try again.")).finally(() => setAuthLoading(false)); }, []);
+  useEffect(() => { idbGet<{ name: string; type: string; data: ArrayBuffer }>("pendingUpload").then((saved) => { if (saved) setFile(new File([new Blob([saved.data], { type: saved.type })], saved.name, { type: saved.type })); }).catch(() => {}); }, []);
+  const step = analysis ? 4 : orderID ? 3 : proceedToPayment ? 2 : 1;
+  const backendError = (message: string, status?: number) => { const text = message.toLowerCase(); if (text.includes("unsupported file type")) return "Unsupported file type. Please upload a PDF or Word document."; if (status === 402 || text.includes("payment")) return "Payment was not authorized. You have not been charged; please try again."; if (text.includes("no file")) return "No file was received. Please select your lease again."; return "Something unexpected went wrong. Please try again."; };
+  async function startAnalysis(id: string) {
+    if (!file || !userId) { setError("Your file or session is unavailable. Please refresh and try again."); return; }
+    try {
+      const baseUrl = process.env.NEXT_PUBLIC_FIREBASE_FUNCTIONS_URL; if (!baseUrl) throw new Error("Server configuration is unavailable.");
+      const sanitizedFilename = file.name.replace(/[^\w\-_.]/g, "_").replace(/\s+/g, "_").substring(0, 100);
+      const res = await fetch(`${baseUrl}/upload`, { method: "POST", headers: { "Content-Type": file.type || "application/octet-stream", "x-filename": sanitizedFilename, "x-userid": userId, "x-orderid": id, "x-email": email, ...(customPrompt.trim() && { "x-prompt": customPrompt }) }, body: file, cache: "no-cache", mode: "cors", credentials: "omit" });
+      if (!res.ok) { let message = ""; try { message = (await res.json()).error || ""; } catch {} throw new Error(backendError(message, res.status)); }
+      const data = await res.json(); if (data.error) throw new Error(backendError(String(data.error)));
+      setAnalysis(data.analysis); await idbDel("pendingUpload"); sessionStorage.setItem("analysis", JSON.stringify(data.analysis)); sessionStorage.setItem("email", email); router.push("/upload/done");
+    } catch (err) { setError(err instanceof Error ? err.message : "Something unexpected went wrong."); setOrderID(null); }
+  }
+  if (authLoading) return <main className="flex min-h-screen items-center justify-center"><Loader2 className="animate-spin text-primary" /><span className="ml-2 font-bold text-primary">Loading…</span></main>;
+  return <main className="min-h-screen bg-primary-light px-4 py-8"><div className="mx-auto flex w-full max-w-xl flex-col items-start gap-6 text-left"><Link href="/" className="font-semibold text-primary">← Back to home</Link><Stepper step={step} />
+    {!proceedToPayment && <section className="w-full rounded-xl border border-gray-100 bg-white p-6 shadow"><h1 className="flex items-center gap-2 text-2xl font-bold text-primary"><UploadCloud /> Upload your lease</h1><div className="mt-5 space-y-4"><label className="block font-medium">Email address<input className="mt-1 w-full rounded border border-gray-300 p-2" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" /></label><label className="block font-medium">Lease file (PDF or Word)<input ref={inputRef} className="mt-1 w-full rounded border border-gray-300 p-2" type="file" accept=".pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" onChange={async (e) => { const selected = e.target.files?.[0]; if (selected) { setFile(selected); setError(null); await persist(selected); } }} /></label><label className="block font-medium">Anything you want us to focus on? <span className="font-normal">(optional)</span><textarea className="mt-1 w-full rounded border border-gray-300 p-2" rows={2} value={customPrompt} onChange={(e) => setCustomPrompt(e.target.value)} placeholder="For example, focus on the security deposit or maintenance terms." /></label><p className="text-sm text-gray-600">One review costs $19.99 USD. This service is informational and is not legal advice.</p><button className="w-full rounded bg-primary py-3 font-bold text-white hover:bg-blue-700" onClick={async () => { if (!file) return setError("Choose a lease file before continuing."); if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return setError("Enter a valid email address before continuing."); await persist(file); setError(null); setProceedToPayment(true); }}>Continue to payment</button></div></section>}
+    {proceedToPayment && !orderID && <section className="w-full rounded-xl border border-gray-100 bg-white p-6 text-center shadow"><h1 className="flex justify-center gap-2 text-2xl font-bold text-primary"><ReceiptText /> One-time payment</h1><p className="mt-3 font-semibold">{file ? `Selected file: ${file.name}` : "Your selected file is unavailable. Please go back and choose it again."}</p><p className="mb-5 text-sm text-gray-600">$19.99 USD · Secure payment through PayPal</p><PayPalButton amount="19.99" currency="USD" onSuccess={(id) => { setPaying(true); setOrderID(id); startAnalysis(id); }} onError={() => { setPaying(false); setError("PayPal could not complete the payment. Please check your connection and try again."); }} />{error && <ErrorMessage text={error} />}</section>}
+    {orderID && !analysis && <section className="flex w-full flex-col items-center rounded-xl bg-white p-8 text-center shadow"><Wand2 className="text-primary" /><h1 className="mt-3 text-xl font-bold text-primary">Analyzing your lease</h1><Loader2 className="mt-4 animate-spin text-primary" /><p className="mt-4 text-gray-600">{paying ? "Payment verified. Your review is being prepared and may take a few minutes." : "Preparing your review…"}</p>{error && <ErrorMessage text={error} />}</section>}
+  </div></main>;
+}
+function ErrorMessage({ text }: { text: string }) { return <div className="mt-4 flex items-start gap-2 rounded border border-red-200 bg-red-50 p-3 text-left text-sm text-red-700"><AlertTriangle className="h-5 w-5 shrink-0" />{text}</div>; }
