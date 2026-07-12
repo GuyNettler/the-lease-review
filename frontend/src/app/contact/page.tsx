@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { Mail, Send, CheckCircle } from "lucide-react";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 
 export default function ContactPage() {
   const [sent, setSent] = useState(false);
@@ -38,11 +39,10 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center bg-primary-light px-4 py-8 text-left">
-      <section className="mt-8 w-full max-w-2xl flex flex-col gap-6 rounded-xl bg-white p-6 shadow">
-        <Link href="/" className="text-sm font-semibold text-primary hover:text-blue-700">
-          ← Home
-        </Link>
+    <main className="min-h-screen bg-primary-light text-left">
+      <SiteHeader />
+      <section className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-4 py-10 sm:px-6">
+        <div className="flex flex-col gap-6 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm sm:p-8">
         <div className="flex items-center gap-3">
           <Mail className="text-primary" size={32} />
           <h1 className="text-3xl font-bold text-primary">Contact us</h1>
@@ -115,7 +115,9 @@ export default function ContactPage() {
             hello@theleasereview.com
           </a>
         </p>
+        </div>
       </section>
+      <SiteFooter />
     </main>
   );
 }

@@ -1,19 +1,17 @@
-import { ReactNode } from "react";
-
 interface TestimonialCardProps {
-  avatar: ReactNode;
   name: string;
-  location: string;
+  city: string;
   quote: string;
 }
 
-export default function TestimonialCard({ avatar, name, location, quote }: TestimonialCardProps) {
+export default function TestimonialCard({ name, city, quote }: TestimonialCardProps) {
   return (
-    <div className="flex flex-col items-center bg-gray-50 rounded-xl shadow p-4 gap-2 w-full max-w-xs border border-gray-100">
-      <div className="mb-2">{avatar}</div>
-      <div className="font-bold text-blue-800 text-base text-center">{name}</div>
-      <div className="text-xs text-gray-500 mb-1 text-center">{location}</div>
-      <blockquote className="text-gray-700 text-sm text-center italic">&ldquo;{quote}&rdquo;</blockquote>
-    </div>
+    <figure className="flex h-full flex-col rounded-2xl border border-blue-100 bg-white p-6 shadow-sm">
+      <blockquote className="flex-1 text-slate-700 leading-relaxed">&ldquo;{quote}&rdquo;</blockquote>
+      <figcaption className="mt-4 text-sm">
+        <span className="font-bold text-slate-900">{name}</span>
+        <span className="text-slate-500"> · {city}</span>
+      </figcaption>
+    </figure>
   );
-} 
+}
