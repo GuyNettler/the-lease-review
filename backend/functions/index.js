@@ -547,7 +547,7 @@ app.post('/contact', express.json(), async (req, res) => {
     const transporter = getMailTransporter();
     if (!transporter) return res.status(500).json({ error: 'Email is not configured' });
 
-    const to = 'hello@theleasereview.com';
+    const to = process.env.CONTACT_INBOX || process.env.SMTP_USER || 'hello@theleasereview.com';
     const isReview = String(type || '').toLowerCase() === 'review';
     const subject = isReview
       ? `New customer review${city ? ` – ${city}` : ''}`
