@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     q: "How much does a review cost?",
-    a: "Each review costs $19.99 USD as a one-time payment through PayPal.",
+    a: "Each review costs $9.99 USD as a one-time payment through PayPal.",
   },
   {
     q: "What happens to my file?",

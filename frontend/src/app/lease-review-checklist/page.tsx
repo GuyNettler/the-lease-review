@@ -80,7 +80,7 @@ export default function ChecklistPage() {
         <h1 className="text-4xl font-extrabold text-slate-900">Lease review checklist</h1>
         <p className="mt-4 text-lg text-slate-700">
           Use this free list before you sign. When you want a structured pass over your actual
-          document, upload it for $19.99.
+          document, upload it for $9.99.
         </p>
 
         <ol className="mt-10 space-y-4">
@@ -99,7 +99,7 @@ export default function ChecklistPage() {
             href="/upload"
             className="mt-5 inline-block rounded-full bg-white px-8 py-3 font-bold text-primary hover:bg-blue-50"
           >
-            Upload for $19.99
+            Upload for $9.99
           </Link>
         </div>
 

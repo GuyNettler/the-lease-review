@@ -45,7 +45,7 @@ export const guides: Guide[] = [
         body: "Harsh default language for small delays can be used as leverage. Ask for written notice and a cure period before serious consequences.",
       },
     ],
-    ctaNote: "Want these checked in your actual lease? Upload it for a $19.99 plain-English review.",
+    ctaNote: "Want these checked in your actual lease? Upload it for a $9.99 plain-English review.",
   },
   {
     slug: "security-deposit",
@@ -103,7 +103,7 @@ export const guides: Guide[] = [
         body: "If the unit becomes unlivable, check whether the lease allows exit after notice without the usual penalty — and talk to a local attorney for legal rights.",
       },
     ],
-    ctaNote: "Not sure what your lease says about leaving early? Get a structured review for $19.99.",
+    ctaNote: "Not sure what your lease says about leaving early? Get a structured review for $9.99.",
   },
   {
     slug: "fees-and-charges",
@@ -162,7 +162,7 @@ export const guides: Guide[] = [
   {
     slug: "lawyer-vs-lease-review",
     category: "comparison",
-    title: "Lawyer review vs a $19.99 lease review",
+    title: "Lawyer review vs a $9.99 lease review",
     description:
       "When an AI lease summary helps, when you still need a licensed attorney, and how the two can work together.",
     keywords: "lease review vs lawyer, do I need a lawyer for a lease, cheap lease review",
@@ -170,7 +170,7 @@ export const guides: Guide[] = [
       "A structured informational review helps you see fees, deadlines, and one-sided wording quickly. It is not a substitute for legal advice on your rights.",
     sections: [
       {
-        heading: "What a $19.99 review is good for",
+        heading: "What a $9.99 review is good for",
         body: "Spotting deposit, fee, renewal, guest, pet, and early-exit language; preparing questions for a landlord or attorney.",
       },
       {

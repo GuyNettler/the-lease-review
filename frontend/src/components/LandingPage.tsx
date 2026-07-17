@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import { PRICE_LABEL } from "@/lib/pricing";
 
 export type LandingBullet = {
   title: string;
@@ -63,7 +64,7 @@ export default function LandingPage({
           <h2 className="text-xl font-bold text-primary">How it works</h2>
           <ol className="mt-3 list-decimal space-y-1 pl-5 text-sm text-slate-700 sm:text-base">
             <li>Upload a PDF or Word lease</li>
-            <li>Pay $19.99 once</li>
+            <li>Pay {PRICE_LABEL} once</li>
             <li>Receive an English review in minutes</li>
           </ol>
           <Link

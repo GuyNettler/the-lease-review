@@ -80,7 +80,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             href="/upload"
             className="mt-8 inline-block rounded-full bg-primary px-6 py-3 font-bold text-white hover:bg-blue-700"
           >
-            Review my lease for $19.99
+            Review my lease for $9.99
           </Link>
           <p className="mt-3 text-xs text-slate-500">Informational only — not legal advice.</p>
         </div>

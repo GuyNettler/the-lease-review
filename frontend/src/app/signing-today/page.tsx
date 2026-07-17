@@ -19,7 +19,7 @@ export default function SigningTodayPage() {
       eyebrow="Signing today"
       title="Don’t skim 30 pages under time pressure"
       subtitle="If a landlord or agent wants a signature today, a structured review helps you spot fees, deadlines, and one-sided wording before you commit."
-      ctaLabel="Get a same-day review — $19.99"
+      ctaLabel="Get a same-day review — $9.99"
       bullets={[
         {
           title: "Fees stacked on rent",

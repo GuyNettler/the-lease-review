@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { PRICE_ONE_TIME } from "@/lib/pricing";
 
 const columns = [
   {
     title: "Product",
     links: [
       ["Review my lease", "/upload"],
+      ["Before you sign", "/review-lease-before-signing"],
       ["Lease checklist", "/lease-review-checklist"],
       ["How it works", "/#how-it-works"],
       ["FAQ", "/faq"],
@@ -65,7 +67,7 @@ export default function SiteFooter() {
         ))}
       </div>
       <div className="border-t border-slate-800 px-6 py-5 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} The Lease Review · $19.99 one-time · theleasereview.com
+        © {new Date().getFullYear()} The Lease Review · {PRICE_ONE_TIME} · theleasereview.com
       </div>
     </footer>
   );

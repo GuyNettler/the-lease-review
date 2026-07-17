@@ -72,7 +72,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             href="/upload"
             className="mt-4 inline-block rounded-full bg-primary px-6 py-3 font-bold text-white hover:bg-blue-700"
           >
-            Review my lease for $19.99
+            Review my lease for $9.99
           </Link>
         </aside>
 

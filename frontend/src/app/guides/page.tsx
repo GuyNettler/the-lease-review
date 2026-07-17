@@ -76,7 +76,7 @@ export default function GuidesHubPage() {
 
         <div className="mt-14 rounded-2xl bg-primary px-8 py-10 text-center text-white">
           <h2 className="text-2xl font-extrabold">Have a lease in hand?</h2>
-          <p className="mt-2 text-blue-100">Get a structured review for $19.99.</p>
+          <p className="mt-2 text-blue-100">Get a structured review for $9.99.</p>
           <Link
             href="/upload"
             className="mt-5 inline-block rounded-full bg-white px-8 py-3 font-bold text-primary hover:bg-blue-50"

@@ -29,7 +29,7 @@ export default function TermsPage() {
         </p>
         <h2>Payments and availability</h2>
         <p>
-          Reviews are a one-time purchase of $19.99 USD. Service availability and results are not
+          Reviews are a one-time purchase of $9.99 USD. Service availability and results are not
           guaranteed, and we may update or discontinue the service as permitted by law.
         </p>
         <h2>Limitation of liability</h2>

@@ -1,6 +1,6 @@
 # The Lease Review
 
-US English apartment lease review product — upload a lease, pay **$19.99 USD**, get an AI report in minutes.
+US English apartment lease review product — upload a lease, pay **$9.99 USD**, get an AI report in minutes.
 
 - **Site:** https://www.theleasereview.com  
 - **Repo:** https://github.com/GuyNettler/the-lease-review  
@@ -22,7 +22,7 @@ the-lease-review/
 | Project | `schirut-3ca36` | same |
 | Function | `api` | `tlrApi` (codebase `tlr`) |
 | Storage | `contracts/…`, `rejected/…` | `tlr/contracts/…`, `tlr/rejected/…` |
-| PayPal | ILS ~20 | USD 19.99 (separate Cloud Run env) |
+| PayPal | ILS ~20 | USD 9.99 (separate Cloud Run env) |
 | Frontend URL | `…/api` | `https://us-central1-schirut-3ca36.cloudfunctions.net/tlrApi` |
 
 Always deploy with `--only functions:tlrApi` so Schirut’s `api` is untouched.
@@ -64,7 +64,7 @@ Then set **PayPal + SMTP** env vars on the `tlrApi` Cloud Run service (USD). `GE
 | `PAYPAL_ENV` | `sandbox` or `live` |
 | `PAYPAL_CLIENT_ID` / `PAYPAL_CLIENT_SECRET` | Live USD app |
 | `PAYPAL_SANDBOX_CLIENT_ID` / `PAYPAL_SANDBOX_CLIENT_SECRET` | Sandbox |
-| `PAYPAL_EXPECTED_AMOUNT` | `19.99` |
+| `PAYPAL_EXPECTED_AMOUNT` | `9.99` |
 | `PAYPAL_EXPECTED_CURRENCY` | `USD` |
 | `SMTP_USER` / `SMTP_PASS` | Outbound email |
 | `SMTP_HOST` / `SMTP_PORT` | `smtp.gmail.com` / `465` |
@@ -86,7 +86,7 @@ Contact/review inbox: `hello@theleasereview.com`.
 ## Payment flow
 
 1. User uploads PDF/DOCX + email on `/upload`.
-2. PayPal **authorizes** $19.99 USD (not captured yet).
+2. PayPal **authorizes** $9.99 USD (not captured yet).
 3. Backend extracts text → validates residential lease → Gemini analysis.
 4. On success, PayPal **captures**; results emailed + shown on `/upload/done`.
 5. On extraction/validation failure, user is **not charged**.

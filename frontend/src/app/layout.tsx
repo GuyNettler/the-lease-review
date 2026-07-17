@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { PRICE_ONE_TIME, PRICE_USD } from "@/lib/pricing";
 import "./globals.css";
 
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans" });
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     template: "%s | The Lease Review",
   },
   description:
-    "Upload your U.S. apartment lease and get a clear, AI-powered review of important terms, fees, deposits, and questions to ask before you sign. $19.99 one-time.",
+    `Upload your U.S. apartment lease and get a clear, AI-powered review of important terms, fees, deposits, and questions to ask before you sign. ${PRICE_ONE_TIME}.`,
   keywords: [
     "apartment lease review",
     "review lease before signing",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "The Lease Review",
-    description: "Review your apartment lease before you sign — plain English, $19.99.",
+    description: `Review your apartment lease before you sign — plain English, $${PRICE_USD}.`,
     type: "website",
     locale: "en_US",
     url: siteUrl,
@@ -73,7 +74,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     url: `${siteUrl}/upload`,
     provider: { "@type": "Organization", name: "The Lease Review" },
     areaServed: { "@type": "Country", name: "United States" },
-    offers: { "@type": "Offer", price: "19.99", priceCurrency: "USD" },
+    offers: { "@type": "Offer", price: PRICE_USD, priceCurrency: "USD" },
   };
 
   return (

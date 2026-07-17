@@ -442,7 +442,7 @@ async function isOrderAuthorized(orderID) {
 
 // Validate the order details (amount, currency, payee, and intent)
 async function validateOrderDetails(orderID) {
-  const expectedAmount = String(process.env.PAYPAL_EXPECTED_AMOUNT || '19.99');
+  const expectedAmount = String(process.env.PAYPAL_EXPECTED_AMOUNT || '9.99');
   const expectedCurrency = String(process.env.PAYPAL_EXPECTED_CURRENCY || 'USD');
 
   const order = await getOrder(orderID);

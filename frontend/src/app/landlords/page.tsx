@@ -19,7 +19,7 @@ export default function LandlordsPage() {
       eyebrow="Landlords & managers"
       title="Clearer leases mean fewer surprised tenants"
       subtitle="When applicants understand deposits, fees, and responsibilities up front, move-ins go smoother and disputes are less likely later."
-      ctaLabel="Preview a lease review — $19.99"
+      ctaLabel="Preview a lease review — $9.99"
       bullets={[
         {
           title: "Transparent fees",

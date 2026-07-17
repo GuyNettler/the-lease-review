@@ -19,7 +19,7 @@ export default function StudentsPage() {
       eyebrow="Students & shared housing"
       title="Review the lease before you cosign with roommates"
       subtitle="Shared apartments multiply risk. See how joint liability, guests, sublets, and deposits are written before move-in day."
-      ctaLabel="Review my lease for $19.99"
+      ctaLabel="Review my lease for $9.99"
       bullets={[
         {
           title: "Joint liability",

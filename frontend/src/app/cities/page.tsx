@@ -26,7 +26,7 @@ export default function CitiesIndexPage() {
             <h1 className="text-4xl font-extrabold text-slate-900">Lease review by city</h1>
             <p className="mt-4 max-w-xl text-lg text-slate-700">
               Local context for deposits, fees, renewals, and roommate rules — then upload your
-              actual lease for a structured $19.99 review.
+              actual lease for a structured $9.99 review.
             </p>
           </div>
           <div className="flex justify-center md:justify-end">
@@ -58,7 +58,7 @@ export default function CitiesIndexPage() {
             href="/upload"
             className="mt-5 inline-block rounded-full bg-primary px-8 py-3 font-bold text-white hover:bg-blue-700"
           >
-            Start for $19.99
+            Start for $9.99
           </Link>
         </div>
       </section>

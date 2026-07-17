@@ -40,7 +40,7 @@ export default function HomePage() {
                 href="/upload"
                 className="rounded-full bg-primary px-8 py-4 text-lg font-bold text-white shadow-lg shadow-blue-500/20 transition hover:bg-blue-700"
               >
-                Get your review for $19.99
+                Get your review for $9.99
               </Link>
               <Link href="/lease-review-checklist" className="font-semibold text-primary hover:underline">
                 Free checklist →
@@ -67,7 +67,7 @@ export default function HomePage() {
         </p>
         <div className="mt-8 grid gap-5 md:grid-cols-4">
           <StepCard step={1} icon={<Upload />} title="Upload" description="PDF or Word lease plus your email." />
-          <StepCard step={2} icon={<ShieldCheck />} title="Pay once" description="$19.99 securely through PayPal." />
+          <StepCard step={2} icon={<ShieldCheck />} title="Pay once" description="$9.99 securely through PayPal." />
           <StepCard step={3} icon={<Sparkles />} title="AI review" description="We extract and analyze key terms." />
           <StepCard step={4} icon={<FileSearch />} title="Get results" description="Summary, concerns, and recommendations." />
         </div>
@@ -165,7 +165,7 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-3xl px-6 py-20 text-center">
-        <h2 className="text-3xl font-extrabold">One lease review, $19.99</h2>
+        <h2 className="text-3xl font-extrabold">One lease review, $9.99</h2>
         <p className="mt-3 text-slate-700">
           No subscription. Upload your agreement and get a clear review before signing.
         </p>
