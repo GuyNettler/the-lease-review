@@ -10,20 +10,22 @@ const siteUrl = "https://www.theleasereview.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "The Lease Review | Understand Your Apartment Lease Before Signing",
+    default: "Lease Review | Review Your Apartment Lease Before Signing",
     template: "%s | The Lease Review",
   },
   description:
-    `Upload your U.S. apartment lease and get a clear, AI-powered review of important terms, fees, deposits, and questions to ask before you sign. ${PRICE_ONE_TIME}.`,
+    `Lease review for U.S. renters: upload your apartment lease and get a clear, AI-powered review of fees, deposits, renewals, and questions to ask before you sign. ${PRICE_ONE_TIME}.`,
   keywords: [
+    "lease review",
     "apartment lease review",
     "review lease before signing",
+    "rental lease agreement review",
     "rental agreement review",
+    "tenant lease checklist",
     "security deposit clause",
-    "lease checklist",
   ],
   openGraph: {
-    title: "The Lease Review",
+    title: "Lease Review | The Lease Review",
     description: `Review your apartment lease before you sign — plain English, $${PRICE_USD}.`,
     type: "website",
     locale: "en_US",
@@ -33,11 +35,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "The Lease Review",
+    title: "Lease Review | The Lease Review",
     description: "Review your apartment lease before you sign.",
     images: ["/icon.png"],
   },
-  alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   icons: {
     icon: "/favicon.ico",

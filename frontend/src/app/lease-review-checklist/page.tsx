@@ -62,8 +62,23 @@ const items = [
   },
 ];
 
+const faqs = [
+  {
+    q: "What should a tenant lease checklist include?",
+    a: "At minimum: deposit rules, fees beyond rent, renewal notice deadlines, early exit costs, repairs, guests/roommates, pets, parking, and move-out standards.",
+  },
+  {
+    q: "Is this checklist a substitute for reading the full lease?",
+    a: "No. Use it as a guide while you read every page and addendum. Upload the document if you want a structured pass over your actual agreement.",
+  },
+  {
+    q: "When should I use a lease review checklist?",
+    a: "Before you sign — ideally before you pay deposits or application fees that lock you into a tight timeline.",
+  },
+];
+
 export default function ChecklistPage() {
-  const jsonLd = {
+  const articleLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: "Apartment Lease Review Checklist",
@@ -72,15 +87,29 @@ export default function ChecklistPage() {
     author: { "@type": "Organization", name: "The Lease Review" },
   };
 
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
+  };
+
   return (
     <main className="min-h-screen bg-primary-light text-left">
       <SiteHeader />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
+      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <section className="mx-auto max-w-4xl px-6 py-14">
-        <h1 className="text-4xl font-extrabold text-slate-900">Lease review checklist</h1>
+        <h1 className="text-4xl font-extrabold text-slate-900">Tenant lease review checklist</h1>
         <p className="mt-4 text-lg text-slate-700">
-          Use this free list before you sign. When you want a structured pass over your actual
-          document, upload it for $9.99.
+          Use this free list before you sign a U.S. apartment lease. When you want a structured pass
+          over your actual document, upload it for $9.99.
         </p>
 
         <ol className="mt-10 space-y-4">
@@ -93,6 +122,18 @@ export default function ChecklistPage() {
           ))}
         </ol>
 
+        <section className="mt-12 rounded-2xl border border-slate-100 bg-white p-8 shadow-sm">
+          <h2 className="text-2xl font-bold text-slate-900">Checklist FAQ</h2>
+          <div className="mt-6 space-y-5">
+            {faqs.map(({ q, a }) => (
+              <article key={q}>
+                <h3 className="text-lg font-bold text-primary">{q}</h3>
+                <p className="mt-2 text-slate-700">{a}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <div className="mt-10 rounded-2xl bg-primary p-8 text-center text-white">
           <h2 className="text-2xl font-extrabold">Want this done on your lease?</h2>
           <Link
@@ -101,6 +142,12 @@ export default function ChecklistPage() {
           >
             Upload for $9.99
           </Link>
+          <p className="mt-4 text-sm text-blue-100">
+            Or start with{" "}
+            <Link href="/rental-lease-agreement-review" className="font-semibold underline">
+              rental lease agreement review
+            </Link>
+          </p>
         </div>
 
         <section className="mt-12">

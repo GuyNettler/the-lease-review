@@ -7,6 +7,7 @@ const columns = [
     links: [
       ["Review my lease", "/upload"],
       ["Before you sign", "/review-lease-before-signing"],
+      ["Rental agreement review", "/rental-lease-agreement-review"],
       ["Lease checklist", "/lease-review-checklist"],
       ["How it works", "/#how-it-works"],
       ["FAQ", "/faq"],

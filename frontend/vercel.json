@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "theleasereview.com" }],
+      "destination": "https://www.theleasereview.com/:path*",
+      "permanent": true
+    }
+  ]
+}

@@ -293,6 +293,13 @@ export default function ReviewLeaseBeforeSigningPage() {
           <Link href="/guides" className="font-semibold text-primary hover:underline">
             lease guides
           </Link>
+          {" · "}
+          <Link
+            href="/rental-lease-agreement-review"
+            className="font-semibold text-primary hover:underline"
+          >
+            rental agreement review
+          </Link>
         </p>
       </section>
 

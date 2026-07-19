@@ -1,3 +1,5 @@
+export type CityFaq = { q: string; a: string };
+
 export type City = {
   slug: string;
   name: string;
@@ -6,6 +8,7 @@ export type City = {
   description: string;
   localNotes: string[];
   keywords: string;
+  faqs: CityFaq[];
 };
 
 export const cities: City[] = [
@@ -20,8 +23,20 @@ export const cities: City[] = [
       "Deposits, fees, and renewal practices can vary by building type and borough.",
       "Watch for broker fees, amenity charges, and strict guest or roommate rules.",
       "Rent-stabilized and market-rate leases can look very different — read the specific form you are given.",
+      "Confirm how notice must be delivered (portal, email, certified mail) before you rely on a verbal conversation.",
     ],
-    keywords: "New York lease review, NYC apartment lease check, review lease before signing NYC",
+    keywords:
+      "New York lease review, NYC apartment lease check, review lease before signing NYC, Manhattan Brooklyn lease review",
+    faqs: [
+      {
+        q: "Should NYC renters review broker and amenity fees separately from rent?",
+        a: "Yes. Total monthly cost often includes amenity, trash, and parking fees that sit outside base rent. Map every recurring charge before you sign.",
+      },
+      {
+        q: "Do rent-stabilized leases need a different review focus?",
+        a: "They can. Forms, riders, and renewal rules may differ from market-rate leases — read the exact packet you receive, including addenda.",
+      },
+    ],
   },
   {
     slug: "los-angeles",
@@ -34,8 +49,20 @@ export const cities: City[] = [
       "California leases often include detailed disclosures — do not skip attachments.",
       "Look carefully at parking, utilities, and pet addenda common in LA buildings.",
       "Local ordinances may affect notices and rent increases beyond the lease text.",
+      "Confirm who pays for water, trash, and HOA or building assessments if any.",
     ],
-    keywords: "Los Angeles lease review, LA apartment lease, California rental agreement review",
+    keywords:
+      "Los Angeles lease review, LA apartment lease, California rental agreement review, review lease before signing LA",
+    faqs: [
+      {
+        q: "What should LA renters check in parking and pet addenda?",
+        a: "Assigned spaces, guest parking, pet rent, deposits, and breed or weight limits are often separate from the main lease — treat them as part of the deal.",
+      },
+      {
+        q: "Are disclosures part of the lease review?",
+        a: "Yes. California packets can include multiple disclosures. Skip none of them before you sign.",
+      },
+    ],
   },
   {
     slug: "chicago",
@@ -48,8 +75,20 @@ export const cities: City[] = [
       "Confirm who pays heat, water, and trash in older walk-ups versus newer buildings.",
       "Security deposit handling and move-out deductions deserve close reading.",
       "Roommate and guarantor forms are common for shared apartments near campuses.",
+      "Ask how radiator or boiler issues are handled in winter leases.",
     ],
-    keywords: "Chicago lease review, Illinois apartment lease, review rental contract Chicago",
+    keywords:
+      "Chicago lease review, Illinois apartment lease, review rental contract Chicago, Chicago security deposit lease",
+    faqs: [
+      {
+        q: "Why do Chicago leases emphasize heat and utilities?",
+        a: "Older buildings often allocate heat differently than newer ones. Clarify who pays and who maintains systems before winter arrives.",
+      },
+      {
+        q: "Are guarantor forms common for Chicago students?",
+        a: "Yes, especially near campuses. Review guarantor scope, amount, and duration alongside the primary lease.",
+      },
+    ],
   },
   {
     slug: "austin",
@@ -62,8 +101,20 @@ export const cities: City[] = [
       "Many Austin communities use long TAA-style forms with multiple addenda.",
       "Check pet, parking, and technology fees that sit outside base rent.",
       "Early termination and reletting fees are worth reviewing before you sign.",
+      "Map total move-in cash: deposit, pet fees, admin fees, and first month.",
     ],
-    keywords: "Austin lease review, Texas apartment lease, Austin rental agreement check",
+    keywords:
+      "Austin lease review, Texas apartment lease, Austin rental agreement check, TAA lease review Austin",
+    faqs: [
+      {
+        q: "What is special about Austin apartment forms?",
+        a: "Many communities use lengthy Texas Association of Realtors / apartment industry forms. Read every addendum — fees often live there.",
+      },
+      {
+        q: "Should I focus on reletting language?",
+        a: "Yes. Early exit and reletting charges can be significant. Know the notice rules and fee structure before you commit.",
+      },
+    ],
   },
   {
     slug: "seattle",
@@ -76,8 +127,20 @@ export const cities: City[] = [
       "Fee transparency and move-in costs can be significant in Seattle buildings.",
       "Review parking, storage, and utility billing carefully.",
       "Document unit condition thoroughly in rainy climates where moisture issues appear.",
+      "Confirm package locker, gym, and amenity access rules if marketed as included.",
     ],
-    keywords: "Seattle lease review, Washington apartment lease, Seattle rental agreement",
+    keywords:
+      "Seattle lease review, Washington apartment lease, Seattle rental agreement, review lease Seattle WA",
+    faqs: [
+      {
+        q: "Why document condition carefully in Seattle?",
+        a: "Moisture and wear issues can be disputed at move-out. Photos and a move-in checklist protect both sides.",
+      },
+      {
+        q: "What fees commonly surprise Seattle renters?",
+        a: "Parking, storage, utility billing admin fees, and amenity charges often sit outside advertised rent.",
+      },
+    ],
   },
   {
     slug: "denver",
@@ -90,8 +153,20 @@ export const cities: City[] = [
       "Amenity and pet rent add-ons are common in newer Denver communities.",
       "Calendar automatic renewal deadlines early.",
       "Ask how HVAC filter changes and balcony rules are allocated.",
+      "Confirm snow, parking, and storage responsibilities in winter months.",
     ],
-    keywords: "Denver lease review, Colorado apartment lease, Denver rental contract review",
+    keywords:
+      "Denver lease review, Colorado apartment lease, Denver rental contract review, review lease before signing Denver",
+    faqs: [
+      {
+        q: "Do Denver leases often auto-renew?",
+        a: "Many do. Find the notice deadline to decline renewal so you are not locked in unexpectedly.",
+      },
+      {
+        q: "What add-ons should Denver renters expect?",
+        a: "Pet rent, amenity fees, parking, and trash fees frequently appear in newer communities.",
+      },
+    ],
   },
   {
     slug: "miami",
@@ -104,8 +179,20 @@ export const cities: City[] = [
       "Condo and HOA rules may sit alongside the lease — read both.",
       "Confirm renter’s insurance requirements and liability limits.",
       "Look for hurricane shutter, balcony, and amenity access rules.",
+      "Ask whether storm-related access limits or special assessments can affect tenants.",
     ],
-    keywords: "Miami lease review, Florida apartment lease, Miami rental agreement check",
+    keywords:
+      "Miami lease review, Florida apartment lease, Miami rental agreement check, condo lease review Miami",
+    faqs: [
+      {
+        q: "Why review condo docs with a Miami lease?",
+        a: "Building rules on balconies, guests, and insurance can bind you even if they are not repeated in the lease summary.",
+      },
+      {
+        q: "Is renter’s insurance usually required?",
+        a: "Often yes. Confirm minimum liability limits and proof deadlines before move-in.",
+      },
+    ],
   },
   {
     slug: "boston",
@@ -118,8 +205,20 @@ export const cities: City[] = [
       "Student and September leases often include guarantor and roommate complexity.",
       "Broker fees and last-month rent practices vary — map total move-in cash.",
       "Heat and snow-related responsibilities should be explicit in older buildings.",
+      "Confirm whether last month’s rent is collected upfront and how it is applied.",
     ],
-    keywords: "Boston lease review, Massachusetts apartment lease, Boston student lease review",
+    keywords:
+      "Boston lease review, Massachusetts apartment lease, Boston student lease review, September lease Boston",
+    faqs: [
+      {
+        q: "What is unique about Boston September leases?",
+        a: "Student-heavy cycles often mean roommate schedules, guarantors, and tight move-in windows. Read joint-and-several liability language carefully.",
+      },
+      {
+        q: "Should Boston renters budget broker and last-month costs?",
+        a: "Yes. Move-in cash can include broker fees and last month’s rent in addition to security deposit and first month.",
+      },
+    ],
   },
   {
     slug: "san-francisco",
@@ -132,8 +231,20 @@ export const cities: City[] = [
       "Local tenant protections may interact with lease language — verify locally.",
       "Roommate additions and subletting often need written approval.",
       "Parking and storage can be separate licenses with their own fees.",
+      "Confirm how rent increases and notices are described in your specific form.",
     ],
-    keywords: "San Francisco lease review, SF apartment lease, Bay Area rental agreement",
+    keywords:
+      "San Francisco lease review, SF apartment lease, Bay Area rental agreement, review lease San Francisco",
+    faqs: [
+      {
+        q: "Can SF roommate rules block adding an occupant later?",
+        a: "Often yes without written approval. Check occupancy limits and guest rules before you plan on a roommate.",
+      },
+      {
+        q: "Are parking and storage always part of the lease?",
+        a: "Not always. They may be separate licenses with different fees and termination rules.",
+      },
+    ],
   },
   {
     slug: "philadelphia",
@@ -146,8 +257,25 @@ export const cities: City[] = [
       "Utility responsibility in converted homes should be crystal clear.",
       "Watch lead, habitability disclosures, and condition reports.",
       "Early termination fees appear frequently in shorter student-oriented leases.",
+      "In multi-unit row homes, confirm who pays for shared systems and trash.",
+      "Ask whether basement, porch, or yard access is included or restricted.",
     ],
-    keywords: "Philadelphia lease review, Philly apartment lease, Pennsylvania rental review",
+    keywords:
+      "Philadelphia lease review, Philly apartment lease, Pennsylvania rental review, review lease before signing Philadelphia",
+    faqs: [
+      {
+        q: "What should Philly renters check in converted row homes?",
+        a: "Utility metering, heat allocation, shared laundry, and basement or porch access are often ambiguous — get them in writing.",
+      },
+      {
+        q: "Are student leases in Philadelphia different?",
+        a: "They can be shorter and heavier on early-exit fees, guarantors, and roommate liability. Read those clauses before you sign.",
+      },
+      {
+        q: "Why document unit condition in Philadelphia?",
+        a: "Older housing stock can have pre-existing issues. A move-in checklist and photos help with deposit disputes later.",
+      },
+    ],
   },
   {
     slug: "atlanta",
@@ -160,8 +288,20 @@ export const cities: City[] = [
       "Large apartment communities often stack amenity and trash fees.",
       "Gate remotes, parking stickers, and package locker fees add cost.",
       "Review pest-control and balcony grilling rules before move-in.",
+      "Confirm valet trash and amenity access if marketed in the listing.",
     ],
-    keywords: "Atlanta lease review, Georgia apartment lease, Atlanta rental agreement",
+    keywords:
+      "Atlanta lease review, Georgia apartment lease, Atlanta rental agreement, gated community lease Atlanta",
+    faqs: [
+      {
+        q: "What fees are common in Atlanta apartment communities?",
+        a: "Amenity, trash/valet, parking, pet, and tech fees often stack on top of rent. Total the monthly bill, not just base rent.",
+      },
+      {
+        q: "Do gate and package rules matter?",
+        a: "Yes. Lost remotes, guest entry rules, and locker fees can create unexpected costs.",
+      },
+    ],
   },
   {
     slug: "dallas",
@@ -174,8 +314,150 @@ export const cities: City[] = [
       "Texas Association of Realtors / apartment forms can be lengthy — read addenda.",
       "Reletting and reletting charges deserve careful attention.",
       "Confirm who maintains HVAC filters and who pays for service calls.",
+      "Map pet and parking fees across DFW communities before comparing listings.",
     ],
-    keywords: "Dallas lease review, DFW apartment lease, Texas rental contract review",
+    keywords:
+      "Dallas lease review, DFW apartment lease, Texas rental contract review, Fort Worth lease review",
+    faqs: [
+      {
+        q: "Why are DFW leases so long?",
+        a: "Industry forms plus multiple addenda are common. Fees and rules often live in attachments, not the first page.",
+      },
+      {
+        q: "What is reletting?",
+        a: "Language about finding a new tenant and related fees if you leave early. Understand notice, cooperation, and cost before you sign.",
+      },
+    ],
+  },
+  {
+    slug: "houston",
+    name: "Houston",
+    state: "Texas",
+    region: "South",
+    description:
+      "Lease review guidance for Houston renters covering flood-related disclosures, fees, and early termination.",
+    localNotes: [
+      "Ask about flood history, insurance requirements, and who pays for water intrusion cleanup.",
+      "Amenity, trash, and pest fees are common in large Houston communities.",
+      "Confirm HVAC filter duties and after-hours maintenance charges.",
+      "Read early termination and reletting addenda before hurricane or job-relocation season planning.",
+    ],
+    keywords:
+      "Houston lease review, Houston apartment lease, Texas rental agreement Houston, review lease before signing Houston",
+    faqs: [
+      {
+        q: "Should Houston renters ask about flood risk in the lease packet?",
+        a: "Yes. Ask what disclosures apply, what insurance is required, and how water damage responsibility is allocated.",
+      },
+      {
+        q: "What fees should Houston renters total before signing?",
+        a: "Trash, amenity, pest, parking, and admin fees often sit outside advertised rent.",
+      },
+    ],
+  },
+  {
+    slug: "phoenix",
+    name: "Phoenix",
+    state: "Arizona",
+    region: "Southwest",
+    description:
+      "Lease review guidance for Phoenix renters focused on utilities, A/C, pools, and community rules.",
+    localNotes: [
+      "Confirm who pays for electricity during peak A/C months and how utility billing works.",
+      "Pool, gate, and HOA-style community rules may sit in addenda.",
+      "Pet and parking fees are common in Phoenix multifamily communities.",
+      "Document A/C performance at move-in — cooling issues become deposit disputes later.",
+    ],
+    keywords:
+      "Phoenix lease review, Arizona apartment lease, Phoenix rental agreement, review lease Phoenix AZ",
+    faqs: [
+      {
+        q: "Why check A/C language in Phoenix leases?",
+        a: "Cooling is essential. Clarify maintenance response times and who pays for repairs versus filter changes.",
+      },
+      {
+        q: "Are community rules part of the lease?",
+        a: "Often yes via addenda. Pool hours, parking, and guest rules can affect day-to-day living.",
+      },
+    ],
+  },
+  {
+    slug: "washington-dc",
+    name: "Washington, D.C.",
+    state: "District of Columbia",
+    region: "Mid-Atlantic",
+    description:
+      "Lease review guidance for Washington, D.C. renters covering deposits, fees, and condo or co-op building rules.",
+    localNotes: [
+      "Condo and co-op house rules may limit guests, renovations, and pets beyond the lease.",
+      "Map parking, storage, and amenity fees common in D.C. buildings.",
+      "Confirm notice methods for renewal and rent changes.",
+      "Ask whether utilities are separately metered or allocated by building formula.",
+    ],
+    keywords:
+      "Washington DC lease review, DC apartment lease, District of Columbia rental agreement, review lease before signing DC",
+    faqs: [
+      {
+        q: "Do D.C. condo rules override what a listing promised?",
+        a: "Building rules can restrict pets, guests, and renovations. Read condo docs with the lease.",
+      },
+      {
+        q: "What move-in costs surprise D.C. renters?",
+        a: "Parking, storage, amenity fees, and deposits can push cash due at signing well above first month’s rent.",
+      },
+    ],
+  },
+  {
+    slug: "san-diego",
+    name: "San Diego",
+    state: "California",
+    region: "West",
+    description:
+      "Lease review guidance for San Diego renters covering deposits, parking, and coastal or military relocation timelines.",
+    localNotes: [
+      "Parking and storage are scarce near the coast — confirm assignments in writing.",
+      "Military and relocation clauses matter if orders can change mid-lease.",
+      "Review mold, moisture, and balcony rules in older coastal buildings.",
+      "California disclosures still apply — do not skip attachments.",
+    ],
+    keywords:
+      "San Diego lease review, San Diego apartment lease, California rental agreement San Diego, military lease San Diego",
+    faqs: [
+      {
+        q: "Should San Diego renters confirm parking in the lease?",
+        a: "Yes. Street parking pressure is high in many neighborhoods. Get space number, guest rules, and fees in writing.",
+      },
+      {
+        q: "What if I may relocate mid-lease?",
+        a: "Look for early termination, military, or job-relocation language before you sign a 12-month term.",
+      },
+    ],
+  },
+  {
+    slug: "nashville",
+    name: "Nashville",
+    state: "Tennessee",
+    region: "South",
+    description:
+      "Lease review guidance for Nashville renters focused on amenity fees, pets, and short-term guest rules.",
+    localNotes: [
+      "Newer communities often stack amenity, trash, and tech fees.",
+      "Pet rent and breed restrictions are common — read the pet addendum.",
+      "Guest and short-term occupancy rules can be strict in tourist-heavy areas.",
+      "Confirm parking and tow policies before move-in day.",
+    ],
+    keywords:
+      "Nashville lease review, Tennessee apartment lease, Nashville rental agreement, review lease before signing Nashville",
+    faqs: [
+      {
+        q: "What fees are common in Nashville apartments?",
+        a: "Amenity, trash, tech/admin, parking, and pet fees frequently appear on top of rent.",
+      },
+      {
+        q: "Why check guest rules in Nashville?",
+        a: "Some leases limit overnight guests or short stays tightly. Clarify before friends or family visit regularly.",
+      },
+    ],
   },
 ];
 
