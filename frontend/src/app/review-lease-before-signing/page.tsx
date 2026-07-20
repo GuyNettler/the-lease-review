@@ -98,20 +98,31 @@ export default function ReviewLeaseBeforeSigningPage() {
     })),
   };
 
-  const offerSchema = {
+  // Service (not Product): avoids Merchant listing / Product-snippet requirements
+  // (shipping, returns, reviews) that do not apply to this digital informational offer.
+  const serviceSchema = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Service",
     name: "Apartment Lease Review",
     description:
       "Plain-English informational review of a U.S. residential lease before you sign — fees, deposits, renewals, and key clauses.",
-    brand: { "@type": "Brand", name: "The Lease Review" },
+    image: `${siteUrl}/icon.png`,
     url: `${siteUrl}${path}`,
+    provider: {
+      "@type": "Organization",
+      name: "The Lease Review",
+      url: siteUrl,
+      logo: `${siteUrl}/icon.png`,
+    },
+    areaServed: { "@type": "Country", name: "United States" },
+    serviceType: "Residential lease review",
     offers: {
       "@type": "Offer",
       price: PRICE_USD,
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",
       url: `${siteUrl}/upload`,
+      category: "Digital service",
     },
   };
 
@@ -306,7 +317,7 @@ export default function ReviewLeaseBeforeSigningPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(offerSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <SiteFooter />
     </main>

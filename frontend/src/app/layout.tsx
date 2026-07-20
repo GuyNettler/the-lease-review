@@ -72,10 +72,24 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     name: "Apartment Lease Review",
     description:
       "AI-powered informational review of residential lease agreements for U.S. renters.",
+    image: `${siteUrl}/icon.png`,
     url: `${siteUrl}/upload`,
-    provider: { "@type": "Organization", name: "The Lease Review" },
+    provider: {
+      "@type": "Organization",
+      name: "The Lease Review",
+      url: siteUrl,
+      logo: `${siteUrl}/icon.png`,
+    },
     areaServed: { "@type": "Country", name: "United States" },
-    offers: { "@type": "Offer", price: PRICE_USD, priceCurrency: "USD" },
+    serviceType: "Residential lease review",
+    offers: {
+      "@type": "Offer",
+      price: PRICE_USD,
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: `${siteUrl}/upload`,
+      category: "Digital service",
+    },
   };
 
   return (
