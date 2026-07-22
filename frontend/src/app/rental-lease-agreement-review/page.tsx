@@ -187,11 +187,18 @@ export default function RentalLeaseAgreementReviewPage() {
         <p className="mt-10 text-sm text-slate-500">
           Related:{" "}
           <Link href="/review-lease-before-signing" className="font-semibold text-primary hover:underline">
-            review lease before signing
+            before you sign
           </Link>
           {" · "}
           <Link href="/lease-review-checklist" className="font-semibold text-primary hover:underline">
-            tenant lease checklist
+            free checklist
+          </Link>
+          {" · "}
+          <Link
+            href="/guides/how-to-review-a-lease-agreement"
+            className="font-semibold text-primary hover:underline"
+          >
+            how to review a lease
           </Link>
           {" · "}
           <Link href="/cities" className="font-semibold text-primary hover:underline">

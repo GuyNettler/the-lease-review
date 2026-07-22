@@ -14,6 +14,49 @@ export type Guide = {
 
 export const guides: Guide[] = [
   {
+    slug: "how-to-review-a-lease-agreement",
+    category: "guide",
+    title: "How to review a lease agreement before you sign",
+    description:
+      "A practical step-by-step guide to reviewing a U.S. rental lease agreement — fees, deposits, renewals, early exit, and red flags.",
+    keywords:
+      "how to review a lease agreement, review lease agreement, how to check a rental lease, apartment lease review steps, what to look for in a lease",
+    intro:
+      "A lease is easy to skim and expensive to misunderstand. Use this order of review so you catch cost, flexibility, and risk before you sign — whether you do it yourself or upload the file for a structured pass.",
+    sections: [
+      {
+        heading: "1. Confirm parties, address, and term",
+        body: "Names, unit address, start/end dates, and whether the term auto-renews. Errors here create headaches later.",
+      },
+      {
+        heading: "2. Total monthly cost, not just rent",
+        body: "Add amenity, trash, parking, pet, tech, and admin fees. Compare the all-in number to what the listing advertised.",
+      },
+      {
+        heading: "3. Security deposit and move-out rules",
+        body: "Amount, due date, allowed deductions, return timeline, and cleaning standards. Vague “any damages” language is a red flag.",
+      },
+      {
+        heading: "4. Renewals and notice windows",
+        body: "Find the deadline and method to decline renewal. Missing a notice window can lock you into another term.",
+      },
+      {
+        heading: "5. Early termination and reletting",
+        body: "Fees, replacement-tenant rules, and whether liability ends when the unit is re-rented.",
+      },
+      {
+        heading: "6. Repairs, entry, guests, and pets",
+        body: "Who fixes what, landlord entry notice, occupancy limits, and pet deposits or rent.",
+      },
+      {
+        heading: "7. Addenda and disclosures",
+        body: "Parking licenses, HOA/condo rules, lead paint, and insurance requirements often sit outside the main form — read every attachment.",
+      },
+    ],
+    ctaNote:
+      "Want this done on your actual PDF? Upload your lease for a $9.99 plain-English review.",
+  },
+  {
     slug: "dangerous-lease-clauses",
     category: "panic",
     title: "Dangerous lease clauses to spot before you sign",
@@ -111,7 +154,7 @@ export const guides: Guide[] = [
     title: "Rental fees and charges to understand",
     description:
       "Spot amenity, utility, pet, parking, late, and admin fees that sit outside base rent in U.S. leases.",
-    keywords: "apartment fees besides rent, rental junk fees, lease late fees utilities",
+    keywords: "apartment fees besides rent, rental junk fees, what is a lease fee, lease late fees utilities",
     intro:
       "The advertised rent is rarely the full monthly cost. Map every recurring and one-time charge before you sign.",
     sections: [

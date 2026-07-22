@@ -92,6 +92,17 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             ))}
           </ul>
 
+          {city.sections && city.sections.length > 0 ? (
+            <div className="mt-8 space-y-6">
+              {city.sections.map((s) => (
+                <section key={s.heading}>
+                  <h2 className="text-2xl font-bold text-slate-900">{s.heading}</h2>
+                  <p className="mt-3 text-slate-700">{s.body}</p>
+                </section>
+              ))}
+            </div>
+          ) : null}
+
           <h2 className="mt-8 text-2xl font-bold">Before you sign in {city.name}</h2>
           <p className="mt-3 text-slate-700">
             Rental rules can differ by state and city. Review fees, deposits, renewal terms,

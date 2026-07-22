@@ -1,4 +1,5 @@
 export type CityFaq = { q: string; a: string };
+export type CitySection = { heading: string; body: string };
 
 export type City = {
   slug: string;
@@ -9,6 +10,7 @@ export type City = {
   localNotes: string[];
   keywords: string;
   faqs: CityFaq[];
+  sections?: CitySection[];
 };
 
 export const cities: City[] = [
@@ -252,16 +254,28 @@ export const cities: City[] = [
     state: "Pennsylvania",
     region: "Northeast",
     description:
-      "Lease review guidance for Philadelphia renters covering deposits, utilities, and row-home specifics.",
+      "Philadelphia lease review for renters: how to review a lease agreement covering deposits, utilities, row homes, student leases, and fees before you sign.",
     localNotes: [
       "Utility responsibility in converted homes should be crystal clear.",
       "Watch lead, habitability disclosures, and condition reports.",
       "Early termination fees appear frequently in shorter student-oriented leases.",
       "In multi-unit row homes, confirm who pays for shared systems and trash.",
       "Ask whether basement, porch, or yard access is included or restricted.",
+      "Map total monthly cost: rent plus trash, parking, pet, and amenity fees common in Philly listings.",
+      "University City and Temple-area leases often stack guarantor and roommate liability — read joint-and-several language.",
     ],
     keywords:
-      "Philadelphia lease review, Philly apartment lease, Pennsylvania rental review, review lease before signing Philadelphia",
+      "Philadelphia lease review, Philly apartment lease, how to review a lease agreement Philadelphia, Pennsylvania rental review, review lease before signing Philadelphia, Philly row home lease",
+    sections: [
+      {
+        heading: "How to review a lease agreement in Philadelphia",
+        body: "Start with total cost (rent + fees), deposit rules, renewal notice windows, and early-exit fees. Then check utilities in converted row homes, lead/habitability disclosures, and whether basement or porch access is included. Photograph the unit on move-in day — older Philly housing stock makes deposit disputes common without a condition record.",
+      },
+      {
+        heading: "Student and short-term Philly leases",
+        body: "Near campuses, leases may be 9–12 months with guarantors, roommate schedules, and steep break fees. Confirm who remains liable if a roommate leaves mid-term and how notice must be delivered.",
+      },
+    ],
     faqs: [
       {
         q: "What should Philly renters check in converted row homes?",
@@ -274,6 +288,10 @@ export const cities: City[] = [
       {
         q: "Why document unit condition in Philadelphia?",
         a: "Older housing stock can have pre-existing issues. A move-in checklist and photos help with deposit disputes later.",
+      },
+      {
+        q: "How do I review a Philadelphia lease agreement quickly?",
+        a: "Use a checklist for fees, deposit, renewals, and early exit, then upload the PDF for a structured plain-English pass if you want the document checked line by line.",
       },
     ],
   },

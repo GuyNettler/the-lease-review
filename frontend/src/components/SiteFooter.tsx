@@ -17,6 +17,7 @@ const columns = [
     title: "Guides",
     links: [
       ["All guides", "/guides"],
+      ["How to review a lease", "/guides/how-to-review-a-lease-agreement"],
       ["Security deposits", "/guides/security-deposit"],
       ["Early termination", "/guides/early-termination"],
       ["Dangerous clauses", "/guides/dangerous-lease-clauses"],
