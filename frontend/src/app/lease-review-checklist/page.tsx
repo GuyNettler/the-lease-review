@@ -6,15 +6,15 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Apartment Lease Review Checklist",
+  title: "Free Lease Review Checklist | How to Review a Lease",
   description:
-    "A free checklist of what to review in a U.S. apartment lease before you sign — deposits, fees, renewals, repairs, roommates, and more.",
+    "Free lease review checklist: how to review a lease agreement before you sign — deposits, fees, renewals, early exit, repairs, and roommates.",
   keywords:
-    "lease review checklist, what to check in a lease, apartment lease checklist before signing",
+    "lease review checklist, how to review a lease agreement, what to check in a lease, apartment lease checklist before signing, free lease checklist",
   alternates: { canonical: "/lease-review-checklist" },
   openGraph: {
-    title: "Apartment Lease Review Checklist",
-    description: "Free checklist before you sign a residential lease.",
+    title: "Free Lease Review Checklist",
+    description: "How to review a lease before you sign — free step-by-step checklist.",
     url: "/lease-review-checklist",
   },
 };
@@ -152,6 +152,16 @@ export default function ChecklistPage() {
 
         <section className="mt-12">
           <h2 className="text-xl font-bold">Helpful guides</h2>
+          <p className="mt-2 text-slate-600">
+            Start with{" "}
+            <Link
+              href="/guides/how-to-review-a-lease-agreement"
+              className="font-semibold text-primary hover:underline"
+            >
+              how to review a lease agreement
+            </Link>
+            , then use the steps above on your document.
+          </p>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
             {guides.slice(0, 6).map((g) => (
               <li key={g.slug}>

@@ -42,6 +42,12 @@ export default function HomeClient() {
               >
                 Get your review for $9.99
               </Link>
+              <Link
+                href="/guides/how-to-review-a-lease-agreement"
+                className="font-semibold text-primary hover:underline"
+              >
+                How to review a lease
+              </Link>
               <Link href="/lease-review-checklist" className="font-semibold text-primary hover:underline">
                 Free checklist →
               </Link>

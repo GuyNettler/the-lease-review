@@ -151,13 +151,17 @@ export const guides: Guide[] = [
   {
     slug: "fees-and-charges",
     category: "guide",
-    title: "Rental fees and charges to understand",
+    title: "What is a lease fee? Rental fees and charges explained",
     description:
-      "Spot amenity, utility, pet, parking, late, and admin fees that sit outside base rent in U.S. leases.",
-    keywords: "apartment fees besides rent, rental junk fees, what is a lease fee, lease late fees utilities",
+      "What is a lease fee? Spot amenity, utility, pet, parking, late, and admin fees that sit outside base rent in U.S. leases.",
+    keywords: "what is a lease fee, apartment fees besides rent, rental junk fees, lease late fees utilities, amenity fee apartment",
     intro:
-      "The advertised rent is rarely the full monthly cost. Map every recurring and one-time charge before you sign.",
+      "Wondering what a lease fee is? Anything charged beyond base rent — trash, amenity, pet, parking, admin, or late fees — that changes what you actually pay. Map every recurring and one-time charge before you sign.",
     sections: [
+      {
+        heading: "What is a lease fee?",
+        body: "A lease fee is typically any charge in the rental agreement other than base rent: community/amenity fees, trash or valet, technology packages, parking, pet rent, application or admin fees, and late fees. List them from the lease and addenda, then total the monthly and move-in amounts.",
+      },
       {
         heading: "Recurring add-ons",
         body: "Utilities, trash, parking, pets, amenities, technology, and “community fees” can add hundreds per month.",
