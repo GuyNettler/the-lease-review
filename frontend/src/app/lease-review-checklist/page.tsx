@@ -6,15 +6,15 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Free Lease Review Checklist | How to Review a Lease",
+  title: "Free Lease Review Checklist for Tenants",
   description:
-    "Free lease review checklist: how to review a lease agreement before you sign — deposits, fees, renewals, early exit, repairs, and roommates.",
+    "Free apartment lease review checklist: deposits, fees, renewals, early exit, repairs, and roommates — print or follow before you sign.",
   keywords:
-    "lease review checklist, how to review a lease agreement, what to check in a lease, apartment lease checklist before signing, free lease checklist",
+    "lease review checklist, apartment lease checklist before signing, free lease checklist, what to check in a lease, tenant lease checklist",
   alternates: { canonical: "/lease-review-checklist" },
   openGraph: {
     title: "Free Lease Review Checklist",
-    description: "How to review a lease before you sign — free step-by-step checklist.",
+    description: "Printable tenant checklist covering deposits, fees, renewals, and exit terms.",
     url: "/lease-review-checklist",
   },
 };
@@ -106,7 +106,7 @@ export default function ChecklistPage() {
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <section className="mx-auto max-w-4xl px-6 py-14">
-        <h1 className="text-4xl font-extrabold text-slate-900">Tenant lease review checklist</h1>
+        <h1 className="text-4xl font-extrabold text-slate-900">Free lease review checklist</h1>
         <p className="mt-4 text-lg text-slate-700">
           Use this free list before you sign a U.S. apartment lease. When you want a structured pass
           over your actual document, upload it for $9.99.

@@ -18,39 +18,55 @@ export const guides: Guide[] = [
     category: "guide",
     title: "How to review a lease agreement before you sign",
     description:
-      "A practical step-by-step guide to reviewing a U.S. rental lease agreement — fees, deposits, renewals, early exit, and red flags.",
+      "How to review a lease agreement step by step: total cost, deposits, fees, renewals, early exit, repairs, and red flags in a U.S. rental lease.",
     keywords:
-      "how to review a lease agreement, review lease agreement, how to check a rental lease, apartment lease review steps, what to look for in a lease",
+      "how to review a lease agreement, review lease agreement, how to check a rental lease, apartment lease review steps, what to look for in a lease, how to read a lease",
     intro:
-      "A lease is easy to skim and expensive to misunderstand. Use this order of review so you catch cost, flexibility, and risk before you sign — whether you do it yourself or upload the file for a structured pass.",
+      "Learning how to review a lease agreement before you sign saves money and stress. Apartment leases are long, fees hide in addenda, and one missed notice window can lock you into another year. Use this step-by-step order — then raise questions in writing before you commit.",
     sections: [
       {
-        heading: "1. Confirm parties, address, and term",
-        body: "Names, unit address, start/end dates, and whether the term auto-renews. Errors here create headaches later.",
+        heading: "What reviewing a lease actually means",
+        body: "A lease review is not about memorizing legal jargon. It means checking (1) what you pay every month and at move-in, (2) how you can leave or renew, (3) who is responsible for repairs and damages, and (4) whether any clause is vague enough to surprise you later. Skim for structure first, then re-read money and exit sections carefully.",
       },
       {
-        heading: "2. Total monthly cost, not just rent",
-        body: "Add amenity, trash, parking, pet, tech, and admin fees. Compare the all-in number to what the listing advertised.",
+        heading: "1. Confirm parties, address, and term",
+        body: "Match every tenant name, the exact unit address, start and end dates, and whether the term auto-renews. Wrong address or missing roommate names create headaches at move-out and for deposits. Confirm who signs for the landlord (owner, management company, or agent) and where notices must be sent.",
+      },
+      {
+        heading: "2. Calculate total monthly cost, not just base rent",
+        body: "List base rent plus amenity, trash/valet, parking, pet, technology, utility admin, and community fees. Add them up and compare to the listing. Ask which fees can increase mid-lease. This step alone answers most what-will-I-actually-pay questions when you review a lease agreement.",
       },
       {
         heading: "3. Security deposit and move-out rules",
-        body: "Amount, due date, allowed deductions, return timeline, and cleaning standards. Vague “any damages” language is a red flag.",
+        body: "Note the deposit amount, due date, allowed deductions, return timeline, and cleaning or repainting standards. Vague any-damages language is a red flag — ask for a written list of permitted deductions and a clear deadline after you return keys. Photograph the unit on move-in day.",
       },
       {
         heading: "4. Renewals and notice windows",
-        body: "Find the deadline and method to decline renewal. Missing a notice window can lock you into another term.",
+        body: "Find the deadline and method (email, portal, certified mail) to decline renewal or give notice. Missing a window can auto-renew you into another term at a new rent. Calendar the date the day you sign.",
       },
       {
         heading: "5. Early termination and reletting",
-        body: "Fees, replacement-tenant rules, and whether liability ends when the unit is re-rented.",
+        body: "If plans change, what do you owe? Look for flat buyout fees, months of rent, and whether you can propose a replacement tenant. Prefer language that ends or reduces liability once the unit is re-rented. Extreme multi-month penalties with no reletting path are worth negotiating.",
       },
       {
         heading: "6. Repairs, entry, guests, and pets",
-        body: "Who fixes what, landlord entry notice, occupancy limits, and pet deposits or rent.",
+        body: "Who fixes plumbing, appliances, HVAC, and pest issues? How much notice before landlord entry? Occupancy limits and guest rules matter for roommates. Pet deposits, pet rent, and breed or weight limits should be explicit — oral promises do not count.",
       },
       {
-        heading: "7. Addenda and disclosures",
-        body: "Parking licenses, HOA/condo rules, lead paint, and insurance requirements often sit outside the main form — read every attachment.",
+        heading: "7. Read every addendum and disclosure",
+        body: "Parking licenses, HOA/condo rules, lead paint, mold, insurance requirements, and utility billing addenda often sit outside the main form. The lease you reviewed is incomplete until every attachment is checked. Initial only after you have the full packet.",
+      },
+      {
+        heading: "Red flags to pause on",
+        body: "Open-ended fees, rent increases at landlord discretion mid-term, one-sided repair dumps onto the tenant, immediate default for minor delays with no cure period, and deposit return language with no timeline. Write questions down and ask for revised wording before signing.",
+      },
+      {
+        heading: "A simple review checklist order",
+        body: "Parties and dates → all-in monthly cost → deposit and move-out → renewal notice → early exit → repairs/entry/pets → addenda → red flags. If anything is unclear, do not rely on a verbal answer from the leasing agent — get it in the lease or an email addendum.",
+      },
+      {
+        heading: "DIY review vs uploading for a structured pass",
+        body: "You can review a lease agreement yourself with the steps above. If the PDF is long, you are short on time, or you want a plain-English pass over fees and risk areas, upload the file for a one-time structured review — then still use your questions with the landlord or an attorney for local legal advice.",
       },
     ],
     ctaNote:

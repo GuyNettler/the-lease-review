@@ -133,8 +133,11 @@ export default function RentalLeaseAgreementReviewPage() {
             >
               Upload my lease — {PRICE_LABEL}
             </Link>
-            <Link href="/lease-review-checklist" className="font-semibold text-primary hover:underline">
-              Free checklist →
+            <Link
+              href="/guides/how-to-review-a-lease-agreement"
+              className="font-semibold text-primary hover:underline"
+            >
+              Free how-to guide →
             </Link>
           </div>
           <p className="mt-4 text-sm text-slate-600">
