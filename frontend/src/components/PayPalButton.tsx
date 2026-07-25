@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import { track } from "@/lib/analytics";
 
 type PayPalButtonProps = {
   amount: string;
@@ -79,13 +80,18 @@ export default function PayPalButton({
       const buttons = window.paypal.Buttons({
           style: { layout: "vertical", color: "blue", shape: "pill", label: "pay" },
           createOrder: function (_data: unknown, actions: CreateOrderActions) {
+            track("paypal_click", {
+              site: "theleasereview",
+              amount,
+              currency,
+            });
             return actions.order.create({
-              purchase_units: [{ 
-                amount: { value: amount, currency_code: currency }
-              }]
+              purchase_units: [{
+                amount: { value: amount, currency_code: currency },
+              }],
             });
           },
-          onApprove: async (data: OnApproveData, actions: OnApproveActions) => {
+          onApprove: async (data: OnApproveData, _actions: OnApproveActions) => {
             // Don’t capture here — just pass orderID to backend
             onSuccess(data.orderID);
           },

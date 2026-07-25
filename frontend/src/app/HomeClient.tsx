@@ -42,18 +42,19 @@ export default function HomeClient() {
               >
                 Get your review for $9.99
               </Link>
+              <Link href="/demo" className="font-semibold text-primary hover:underline">
+                See sample report
+              </Link>
               <Link
                 href="/guides/how-to-review-a-lease-agreement"
-                className="font-semibold text-primary hover:underline"
+                className="font-semibold text-slate-600 hover:underline"
               >
                 How to review a lease
               </Link>
-              <Link href="/lease-review-checklist" className="font-semibold text-primary hover:underline">
-                Free checklist →
-              </Link>
             </div>
             <p className="text-sm text-slate-600">
-              One-time payment · Files deleted after processing · Not legal advice
+              One-time payment · If analysis fails you are not charged · Files deleted after
+              processing
             </p>
           </div>
           <div className="animate-fade-up relative flex justify-center md:justify-end" style={{ animationDelay: "120ms" }}>
@@ -152,19 +153,19 @@ export default function HomeClient() {
           </div>
           <div className="grid gap-5 md:grid-cols-3">
             <TestimonialCard
-              quote="It flagged an automatic renewal deadline I would have missed by a week."
-              name="Jordan"
+              quote="I was signing that night. It called out the renewal notice window I would have blown past."
+              name="Maya"
               city="Austin"
             />
             <TestimonialCard
-              quote="Clearer than skimming 30 pages the night before move-in."
-              name="Sam"
+              quote="Report hit my inbox in a few minutes. Made it obvious what to ask about pet rent and parking — without reading 30 pages alone."
+              name="Chris"
               city="Chicago"
             />
             <TestimonialCard
-              quote="Helped me list questions for the landlord about pet fees and parking."
-              name="Alex"
-              city="Seattle"
+              quote="First apartment with a roommate. We went through the red flags together before we both signed."
+              name="Priya"
+              city="Denver"
             />
           </div>
         </div>

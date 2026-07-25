@@ -6,6 +6,8 @@ import { CheckCircle, Download, Mail } from "lucide-react";
 import AnalysisResults, { type Analysis } from "@/components/AnalysisResults";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import { trackPaidCompletionOnce } from "@/lib/analytics";
+import { PRICE_USD } from "@/lib/pricing";
 
 export default function UploadDonePage() {
   const [analysis, setAnalysis] = useState<Analysis | null>(null);
@@ -14,6 +16,8 @@ export default function UploadDonePage() {
   useEffect(() => {
     const savedAnalysis = sessionStorage.getItem("analysis");
     const savedEmail = sessionStorage.getItem("email");
+    const orderId = sessionStorage.getItem("orderID") || "";
+
     if (savedAnalysis) {
       try {
         setAnalysis(JSON.parse(savedAnalysis));
@@ -22,6 +26,14 @@ export default function UploadDonePage() {
       }
     }
     if (savedEmail) setEmail(savedEmail);
+
+    if (savedAnalysis && orderId) {
+      trackPaidCompletionOnce({
+        orderId,
+        amount: PRICE_USD,
+        currency: "USD",
+      });
+    }
   }, []);
 
   return (
