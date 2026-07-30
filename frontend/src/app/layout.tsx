@@ -10,11 +10,11 @@ const siteUrl = "https://www.theleasereview.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Lease Review | Review Your Apartment Lease Before Signing",
+    default: "Apartment Lease Review Before You Sign | Free Sample · $9.99",
     template: "%s | The Lease Review",
   },
   description:
-    `Lease review for U.S. renters: upload your apartment lease and get a clear, AI-powered review of fees, deposits, renewals, and questions to ask before you sign. ${PRICE_ONE_TIME}.`,
+    `See a free sample lease review, or upload your apartment lease for a plain-English AI review of fees, deposits, renewals, and red flags before you sign. One-time ${PRICE_ONE_TIME}.`,
   keywords: [
     "lease review",
     "apartment lease review",
@@ -23,10 +23,11 @@ export const metadata: Metadata = {
     "rental agreement review",
     "tenant lease checklist",
     "security deposit clause",
+    "sample lease review",
   ],
   openGraph: {
-    title: "Lease Review | The Lease Review",
-    description: `Review your apartment lease before you sign — plain English, $${PRICE_USD}.`,
+    title: "Apartment Lease Review Before You Sign | The Lease Review",
+    description: `Free sample report, or upload your lease for a plain-English review — $${PRICE_USD}.`,
     type: "website",
     locale: "en_US",
     url: siteUrl,
@@ -35,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Lease Review | The Lease Review",
-    description: "Review your apartment lease before you sign.",
+    title: "Apartment Lease Review Before You Sign | The Lease Review",
+    description: "Free sample report, or upload your apartment lease before you sign.",
     images: ["/icon.png"],
   },
   robots: { index: true, follow: true },

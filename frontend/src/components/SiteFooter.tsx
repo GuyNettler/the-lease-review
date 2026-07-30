@@ -6,6 +6,7 @@ const columns = [
     title: "Product",
     links: [
       ["Review my lease", "/upload"],
+      ["Sample report", "/demo"],
       ["Before you sign", "/review-lease-before-signing"],
       ["Rental agreement review", "/rental-lease-agreement-review"],
       ["Lease checklist", "/lease-review-checklist"],

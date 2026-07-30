@@ -14,6 +14,7 @@ import StepCard from "@/components/StepCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import { DEMO_ANALYSIS } from "@/lib/demoReport";
 
 export default function HomeClient() {
   return (
@@ -35,15 +36,18 @@ export default function HomeClient() {
               Upload a PDF or Word lease and get a plain-English review of important clauses,
               possible concerns, and questions to raise — in minutes.
             </p>
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3">
               <Link
                 href="/upload"
                 className="rounded-full bg-primary px-8 py-4 text-lg font-bold text-white shadow-lg shadow-blue-500/20 transition hover:bg-blue-700"
               >
                 Get your review for $9.99
               </Link>
-              <Link href="/demo" className="font-semibold text-primary hover:underline">
-                See sample report
+              <Link
+                href="/demo"
+                className="rounded-full border-2 border-primary bg-white px-8 py-4 text-lg font-bold text-primary transition hover:bg-blue-50"
+              >
+                Free sample report
               </Link>
               <Link
                 href="/guides/how-to-review-a-lease-agreement"
@@ -77,6 +81,38 @@ export default function HomeClient() {
           <StepCard step={2} icon={<ShieldCheck />} title="Pay once" description="$9.99 securely through PayPal." />
           <StepCard step={3} icon={<Sparkles />} title="AI review" description="We extract and analyze key terms." />
           <StepCard step={4} icon={<FileSearch />} title="Get results" description="Summary, concerns, and recommendations." />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <h2 className="text-3xl font-extrabold text-slate-900">See what a lease review looks like</h2>
+        <p className="mt-2 max-w-2xl text-slate-600">
+          Static sample on a fictional lease — no upload, no payment. Your real report is built from
+          the file you upload.
+        </p>
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
+          {(DEMO_ANALYSIS.tenant_issues || []).slice(0, 2).map((item) => (
+            <div key={item.clause} className="rounded-xl border border-red-100 bg-red-50/70 p-5 text-left">
+              <p className="text-sm font-bold text-red-800">{item.clause}</p>
+              <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-700">
+                {item.explanation}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Link
+            href="/demo"
+            className="rounded-full border-2 border-primary bg-white px-6 py-3 font-bold text-primary transition hover:bg-blue-50"
+          >
+            Full sample report
+          </Link>
+          <Link
+            href="/upload"
+            className="rounded-full bg-primary px-6 py-3 font-bold text-white transition hover:bg-blue-700"
+          >
+            Upload my lease · $9.99
+          </Link>
         </div>
       </section>
 
@@ -188,12 +224,20 @@ export default function HomeClient() {
             </li>
           ))}
         </ul>
-        <Link
-          href="/upload"
-          className="mt-8 inline-block rounded-full bg-primary px-8 py-4 font-bold text-white transition hover:bg-blue-700"
-        >
-          Start your review
-        </Link>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <Link
+            href="/demo"
+            className="inline-block rounded-full border-2 border-primary bg-white px-8 py-4 font-bold text-primary transition hover:bg-blue-50"
+          >
+            Free sample report
+          </Link>
+          <Link
+            href="/upload"
+            className="inline-block rounded-full bg-primary px-8 py-4 font-bold text-white transition hover:bg-blue-700"
+          >
+            Start your review
+          </Link>
+        </div>
       </section>
 
       <section className="border-y border-blue-100 bg-white px-6 py-16">

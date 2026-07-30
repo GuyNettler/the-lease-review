@@ -68,12 +68,20 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
         <aside className="mt-12 rounded-2xl border border-blue-100 bg-primary-light p-6">
           <p className="font-semibold text-slate-900">{guide.ctaNote}</p>
-          <Link
-            href="/upload"
-            className="mt-4 inline-block rounded-full bg-primary px-6 py-3 font-bold text-white hover:bg-blue-700"
-          >
-            Review my lease for $9.99
-          </Link>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Link
+              href="/demo"
+              className="inline-block rounded-full border-2 border-primary bg-white px-6 py-3 font-bold text-primary hover:bg-blue-50"
+            >
+              Free sample report
+            </Link>
+            <Link
+              href="/upload"
+              className="inline-block rounded-full bg-primary px-6 py-3 font-bold text-white hover:bg-blue-700"
+            >
+              Review my lease for $9.99
+            </Link>
+          </div>
         </aside>
 
         <p className="mt-8 text-sm text-slate-500">

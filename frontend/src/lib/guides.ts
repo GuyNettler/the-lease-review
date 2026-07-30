@@ -70,7 +70,7 @@ export const guides: Guide[] = [
       },
     ],
     ctaNote:
-      "Want this done on your actual PDF? Upload your lease for a $9.99 plain-English review.",
+      "Want a free look at the report format first? Open the sample. Ready for your PDF? Upload for a $9.99 plain-English review.",
   },
   {
     slug: "dangerous-lease-clauses",
