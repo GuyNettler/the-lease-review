@@ -16,9 +16,9 @@ export const guides: Guide[] = [
   {
     slug: "how-to-review-a-lease-agreement",
     category: "guide",
-    title: "How to review a lease agreement before you sign",
+    title: "How to Review a Lease Agreement: Step-by-Step Before You Sign",
     description:
-      "How to review a lease agreement step by step: total cost, deposits, fees, renewals, early exit, repairs, and red flags in a U.S. rental lease.",
+      "How to review a lease agreement step by step: total monthly cost, deposits, fees, renewals, early exit, repairs, and red flags — then upload for a plain-English pass if you want one.",
     keywords:
       "how to review a lease agreement, review lease agreement, how to check a rental lease, apartment lease review steps, what to look for in a lease, how to read a lease",
     intro:
