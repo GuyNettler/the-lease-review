@@ -8,8 +8,8 @@ const path = "/rental-lease-agreement-review";
 const siteUrl = "https://www.theleasereview.com";
 
 export const metadata: Metadata = {
-  title: "Rental Lease Agreement Review Online",
-  description: `Get an online rental lease agreement review in plain English before you sign. Spot fees, deposits, renewals, and early-exit terms for ${PRICE_LINE}.`,
+  title: "Rental Lease Agreement Review Online | $9.99",
+  description: `Upload your U.S. rental lease for an online rental lease agreement review in plain English. Spot fees, deposits, renewals, and early-exit terms — ${PRICE_LINE}. Free sample report available.`,
   keywords: [
     "rental lease agreement review",
     "lease agreement review online",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: path },
   openGraph: {
-    title: "Rental Lease Agreement Review | The Lease Review",
+    title: "Rental Lease Agreement Review Online | The Lease Review",
     description: `Upload your U.S. rental lease agreement for a structured plain-English review — ${PRICE_ONE_TIME}.`,
     url: path,
     type: "website",
