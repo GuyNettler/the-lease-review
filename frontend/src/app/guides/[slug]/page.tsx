@@ -45,11 +45,26 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     author: { "@type": "Organization", name: "The Lease Review" },
     publisher: { "@type": "Organization", name: "The Lease Review" },
   };
+  const faqLd =
+    guide.faqs && guide.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: guide.faqs.map(({ q, a }) => ({
+            "@type": "Question",
+            name: q,
+            acceptedAnswer: { "@type": "Answer", text: a },
+          })),
+        }
+      : null;
 
   return (
     <main className="min-h-screen bg-white text-left">
       <SiteHeader />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {faqLd ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      ) : null}
       <article className="mx-auto max-w-3xl px-6 py-14">
         <Link href="/guides" className="font-semibold text-primary">
           ← All guides
@@ -65,6 +80,20 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             </section>
           ))}
         </div>
+
+        {guide.faqs && guide.faqs.length > 0 ? (
+          <section className="mt-12">
+            <h2 className="text-2xl font-bold text-slate-900">Frequently asked questions</h2>
+            <div className="mt-6 space-y-6">
+              {guide.faqs.map(({ q, a }) => (
+                <div key={q}>
+                  <h3 className="text-lg font-bold text-slate-900">{q}</h3>
+                  <p className="mt-2 leading-relaxed text-slate-700">{a}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         <aside className="mt-12 rounded-2xl border border-blue-100 bg-primary-light p-6">
           <p className="font-semibold text-slate-900">{guide.ctaNote}</p>

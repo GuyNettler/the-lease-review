@@ -1,5 +1,6 @@
 export type GuideSection = { heading: string; body: string };
 export type GuideCategory = "panic" | "comparison" | "guide";
+export type GuideFaq = { q: string; a: string };
 
 export type Guide = {
   slug: string;
@@ -10,6 +11,7 @@ export type Guide = {
   sections: GuideSection[];
   ctaNote: string;
   category: GuideCategory;
+  faqs?: GuideFaq[];
 };
 
 export const guides: Guide[] = [
@@ -24,6 +26,10 @@ export const guides: Guide[] = [
     intro:
       "How to review a lease agreement (and how to read one carefully) is a skill every renter needs before signing. Apartment leases are long, fees hide in addenda, and one missed notice window can lock you into another year. Follow this step-by-step order, write down questions, then raise them with the landlord — or upload the PDF for a plain-English structured pass.",
     sections: [
+      {
+        heading: "How to read a lease agreement (before you dig in)",
+        body: "Learning how to read a lease agreement starts with structure, not every sentence on page one. First pass: find the parties, address, term dates, rent amount, and signature pages. Second pass: highlight every dollar amount, deadline, and “tenant shall” duty. Third pass: read addenda and anything about deposits, renewals, early exit, and repairs. Mark unclear lines in the margin and turn them into written questions — that is how to read a lease without getting lost in legalese.",
+      },
       {
         heading: "What reviewing a lease actually means",
         body: "A lease review is not about memorizing legal jargon. It means checking (1) what you pay every month and at move-in, (2) how you can leave or renew, (3) who is responsible for repairs and damages, and (4) whether any clause is vague enough to surprise you later. Skim for structure first, then re-read money and exit sections carefully.",
@@ -67,6 +73,28 @@ export const guides: Guide[] = [
       {
         heading: "DIY review vs uploading for a structured pass",
         body: "You can review a lease agreement yourself with the steps above. If the PDF is long, you are short on time, or you want a plain-English pass over fees and risk areas, upload the file for a one-time structured review — then still use your questions with the landlord or an attorney for local legal advice.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I review a lease agreement before signing?",
+        a: "Confirm parties, address, and dates; add up all monthly fees; check deposit and move-out rules; calendar renewal notice windows; read early-termination terms; note repairs, entry, and pets; then read every addendum. Write questions down and get answers in writing before you sign.",
+      },
+      {
+        q: "How do I read a lease agreement without missing fees?",
+        a: "Do three passes: structure (who, where, when), money (every dollar and deadline), then risk (renewals, exit, repairs, addenda). Highlight fees that sit outside base rent — amenities, parking, pets, trash, and admin charges often hide in riders.",
+      },
+      {
+        q: "What should I look for when I review a rental lease?",
+        a: "Total monthly cost, security deposit return rules, auto-renewal notice deadlines, early-termination fees, repair responsibilities, landlord entry notice, and any vague “tenant pays all damages” language.",
+      },
+      {
+        q: "Is reading a lease the same as a formal lease review?",
+        a: "Reading is your own pass through the document. A structured review organizes fees and risk areas in plain English so you can ask better questions. Neither replaces legal advice for your state or situation.",
+      },
+      {
+        q: "Can I review a lease agreement online?",
+        a: "Yes. You can follow this checklist yourself, or upload the PDF for a one-time plain-English structured pass, then still raise open points with the landlord or an attorney.",
       },
     ],
     ctaNote:
