@@ -16,13 +16,13 @@ export const guides: Guide[] = [
   {
     slug: "how-to-review-a-lease-agreement",
     category: "guide",
-    title: "How to Review a Lease Agreement (Step-by-Step Guide)",
+    title: "How to Review a Lease Agreement (and How to Read One)",
     description:
-      "How to review a lease agreement before you sign: checklist for rent, fees, deposits, renewals, early termination, repairs, and red flags in a U.S. apartment lease.",
+      "How to review a lease agreement — and how to read a lease before you sign: rent, fees, deposits, renewals, early termination, repairs, and red flags in a U.S. apartment lease.",
     keywords:
-      "how to review a lease agreement, how to review a lease, review lease agreement step by step, how to check a rental lease, how to read a lease agreement, what to look for in a lease",
+      "how to review a lease agreement, how to read a lease agreement, how to read a lease, how to review a lease, review lease agreement step by step, how to check a rental lease, what to look for in a lease",
     intro:
-      "How to review a lease agreement is a skill every renter needs before signing. Apartment leases are long, fees hide in addenda, and one missed notice window can lock you into another year. Follow this step-by-step order, write down questions, then raise them with the landlord — or upload the PDF for a plain-English structured pass.",
+      "How to review a lease agreement (and how to read one carefully) is a skill every renter needs before signing. Apartment leases are long, fees hide in addenda, and one missed notice window can lock you into another year. Follow this step-by-step order, write down questions, then raise them with the landlord — or upload the PDF for a plain-English structured pass.",
     sections: [
       {
         heading: "What reviewing a lease actually means",
