@@ -18,13 +18,13 @@ export const guides: Guide[] = [
   {
     slug: "how-to-review-a-lease-agreement",
     category: "guide",
-    title: "How to Review a Lease Agreement (and How to Read One)",
+    title: "How to Review a Lease Agreement Before Signing",
     description:
-      "How to review a lease agreement — and how to read a lease before you sign: rent, fees, deposits, renewals, early termination, repairs, and red flags in a U.S. apartment lease.",
+      "How to review a lease agreement step by step — and how to read a lease before you sign: rent, fees, deposits, renewals, early termination, repairs, and red flags in a U.S. apartment lease.",
     keywords:
-      "how to review a lease agreement, how to read a lease agreement, how to read a lease, how to review a lease, review lease agreement step by step, how to check a rental lease, what to look for in a lease",
+      "how to review a lease agreement, how to review a lease agreement before signing, how to read a lease agreement, how to read a lease, how to review a lease, review lease agreement step by step, how to check a rental lease, what to look for in a lease",
     intro:
-      "How to review a lease agreement (and how to read one carefully) is a skill every renter needs before signing. Apartment leases are long, fees hide in addenda, and one missed notice window can lock you into another year. Follow this step-by-step order, write down questions, then raise them with the landlord — or upload the PDF for a plain-English structured pass.",
+      "How to review a lease agreement before signing is a skill every renter needs. Apartment leases are long, fees hide in addenda, and one missed notice window can lock you into another year. Follow this step-by-step order, write down questions, then raise them with the landlord — or upload the PDF for a plain-English structured pass. Prefer a free look at the report format first? Open the sample demo.",
     sections: [
       {
         heading: "How to read a lease agreement (before you dig in)",
@@ -32,7 +32,7 @@ export const guides: Guide[] = [
       },
       {
         heading: "What reviewing a lease actually means",
-        body: "A lease review is not about memorizing legal jargon. It means checking (1) what you pay every month and at move-in, (2) how you can leave or renew, (3) who is responsible for repairs and damages, and (4) whether any clause is vague enough to surprise you later. Skim for structure first, then re-read money and exit sections carefully.",
+        body: "A lease review is not about memorizing legal jargon. It means checking (1) what you pay every month and at move-in, (2) how you can leave or renew, (3) who is responsible for repairs and damages, and (4) whether any clause is vague enough to surprise you later. Skim for structure first, then re-read money and exit sections carefully. When people search how to review a lease agreement, this is the checklist they need.",
       },
       {
         heading: "1. Confirm parties, address, and term",
@@ -98,7 +98,7 @@ export const guides: Guide[] = [
       },
     ],
     ctaNote:
-      "Want a free look at the report format first? Open the sample. Ready for your PDF? Upload for a $9.99 plain-English review.",
+      "Want a free look at the report format first? Open the sample. Ready for your PDF? Get an online rental lease agreement review for $9.99 — or keep using this checklist yourself.",
   },
   {
     slug: "dangerous-lease-clauses",

@@ -9,7 +9,7 @@ const siteUrl = "https://www.theleasereview.com";
 
 export const metadata: Metadata = {
   title: "Rental Lease Agreement Review Online | $9.99",
-  description: `Upload your U.S. rental lease for an online rental lease agreement review in plain English. Spot fees, deposits, renewals, and early-exit terms — ${PRICE_LINE}. Free sample report available.`,
+  description: `Online rental lease agreement review for U.S. apartments — upload your PDF for a plain-English structured pass (${PRICE_LINE}). Learning how to review a lease yourself first? See our free how-to guide. Free sample report available.`,
   keywords: [
     "rental lease agreement review",
     "lease agreement review online",
