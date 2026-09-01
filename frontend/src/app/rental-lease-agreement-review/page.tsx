@@ -8,26 +8,27 @@ const path = "/rental-lease-agreement-review";
 const siteUrl = "https://www.theleasereview.com";
 
 export const metadata: Metadata = {
-  title: "Rental Lease Agreement Review Online | $9.99",
-  description: `Online rental lease agreement review for U.S. apartments — upload your PDF for a plain-English structured pass (${PRICE_LINE}). Learning how to review a lease yourself first? See our free how-to guide. Free sample report available.`,
+  title: "Online Rental Lease Review Service | $9.99",
+  description: `Upload your U.S. apartment lease PDF for a plain-English structured rental lease agreement review (${PRICE_LINE}). Free sample report available. Prefer a DIY checklist first? See our free step-by-step guide.`,
   keywords: [
     "rental lease agreement review",
     "lease agreement review online",
     "apartment lease agreement review",
+    "online lease review service",
     "tenant lease review",
     "residential lease review",
     "rental contract review",
   ],
   alternates: { canonical: path },
   openGraph: {
-    title: "Rental Lease Agreement Review Online | The Lease Review",
+    title: "Online Rental Lease Review Service | The Lease Review",
     description: `Upload your U.S. rental lease agreement for a structured plain-English review — ${PRICE_ONE_TIME}.`,
     url: path,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rental Lease Agreement Review Online",
+    title: "Online Rental Lease Review Service",
     description: `Plain-English rental lease agreement review for ${PRICE_LINE}.`,
   },
   robots: { index: true, follow: true },
@@ -120,7 +121,7 @@ export default function RentalLeaseAgreementReviewPage() {
             The Lease Review
           </p>
           <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-            Rental lease agreement review online
+            Online rental lease review service
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-700">
             Upload your U.S. apartment or house rental agreement and get a clear, structured review
@@ -201,7 +202,7 @@ export default function RentalLeaseAgreementReviewPage() {
             href="/guides/how-to-review-a-lease-agreement"
             className="font-semibold text-primary hover:underline"
           >
-            how to review a lease
+            free step-by-step guide
           </Link>
           {" · "}
           <Link href="/cities" className="font-semibold text-primary hover:underline">

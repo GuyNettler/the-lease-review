@@ -146,6 +146,14 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
           <h2 className="text-xl font-bold">Helpful next steps</h2>
           <ul className="mt-4 space-y-2 text-slate-700">
             <li>
+              <Link
+                href="/guides/how-to-review-a-lease-agreement"
+                className="font-semibold text-primary hover:underline"
+              >
+                How to review a lease agreement (free guide)
+              </Link>
+            </li>
+            <li>
               <Link href="/lease-review-checklist" className="font-semibold text-primary hover:underline">
                 Free lease review checklist
               </Link>

@@ -254,7 +254,7 @@ export const cities: City[] = [
     state: "Pennsylvania",
     region: "Northeast",
     description:
-      "Philadelphia lease review for renters: how to review a lease agreement covering deposits, utilities, row homes, student leases, and fees before you sign.",
+      "Philadelphia lease review for renters: deposits, utilities, row homes, student leases, and fee stacks common in Philly apartments before you sign.",
     localNotes: [
       "Utility responsibility in converted homes should be crystal clear.",
       "Watch lead, habitability disclosures, and condition reports.",
@@ -265,10 +265,10 @@ export const cities: City[] = [
       "University City and Temple-area leases often stack guarantor and roommate liability — read joint-and-several language.",
     ],
     keywords:
-      "Philadelphia lease review, Philly apartment lease, how to review a lease agreement Philadelphia, Pennsylvania rental review, review lease before signing Philadelphia, Philly row home lease",
+      "Philadelphia lease review, Philly apartment lease, Pennsylvania rental review, review lease before signing Philadelphia, Philly row home lease, Philadelphia security deposit lease",
     sections: [
       {
-        heading: "How to review a lease agreement in Philadelphia",
+        heading: "What Philly renters should check first",
         body: "Start with total cost (rent + fees), deposit rules, renewal notice windows, and early-exit fees. Then check utilities in converted row homes, lead/habitability disclosures, and whether basement or porch access is included. Photograph the unit on move-in day — older Philly housing stock makes deposit disputes common without a condition record.",
       },
       {
@@ -290,7 +290,7 @@ export const cities: City[] = [
         a: "Older housing stock can have pre-existing issues. A move-in checklist and photos help with deposit disputes later.",
       },
       {
-        q: "How do I review a Philadelphia lease agreement quickly?",
+        q: "How do I get a Philadelphia lease agreement checked quickly?",
         a: "Use a checklist for fees, deposit, renewals, and early exit, then upload the PDF for a structured plain-English pass if you want the document checked line by line.",
       },
     ],
@@ -405,15 +405,31 @@ export const cities: City[] = [
     state: "District of Columbia",
     region: "Mid-Atlantic",
     description:
-      "Lease review guidance for Washington, D.C. renters covering deposits, fees, and condo or co-op building rules.",
+      "Washington, D.C. lease review for renters: deposits, parking and amenity fees, condo/co-op house rules, and notice windows before you sign.",
     localNotes: [
       "Condo and co-op house rules may limit guests, renovations, and pets beyond the lease.",
       "Map parking, storage, and amenity fees common in D.C. buildings.",
       "Confirm notice methods for renewal and rent changes.",
       "Ask whether utilities are separately metered or allocated by building formula.",
+      "Move-in cash due (deposit + first month + fees) often exceeds what the listing highlighted.",
+      "Read any guest, short-term sublet, and package-room rules attached as addenda.",
     ],
     keywords:
-      "Washington DC lease review, DC apartment lease, District of Columbia rental agreement, review lease before signing DC",
+      "Washington DC lease review, DC apartment lease, District of Columbia rental agreement, review lease before signing DC, DC condo lease rules, DC parking lease fee",
+    sections: [
+      {
+        heading: "Condo and co-op rules in D.C. leases",
+        body: "Many D.C. rentals sit inside condo or co-op buildings. The lease may look fine while the house rules restrict pets, guests, renovations, flooring, or short-term visitors. Ask for the governing docs (or a summary of restrictions) with the lease, and confirm which rules are incorporated by reference.",
+      },
+      {
+        heading: "Fees, parking, and move-in costs",
+        body: "List every recurring charge: parking, storage, amenity, trash, and tech fees. Then total cash due at signing. D.C. buildings frequently separate parking licenses from the apartment lease — different termination rules can leave you paying for a space you no longer need.",
+      },
+      {
+        heading: "Notice, renewals, and rent changes",
+        body: "Confirm how renewal and rent-change notices must be delivered (email, portal, certified mail) and the exact day-count windows. Vague “management may increase rent upon renewal” language should be pinned to a written notice period before you rely on verbal assurances.",
+      },
+    ],
     faqs: [
       {
         q: "Do D.C. condo rules override what a listing promised?",
@@ -422,6 +438,14 @@ export const cities: City[] = [
       {
         q: "What move-in costs surprise D.C. renters?",
         a: "Parking, storage, amenity fees, and deposits can push cash due at signing well above first month’s rent.",
+      },
+      {
+        q: "Is parking usually part of a D.C. apartment lease?",
+        a: "Often it is a separate license or addendum with its own fee and end date. Confirm assignment, guest parking, and what happens if you move out early.",
+      },
+      {
+        q: "What should I check about utilities in Washington, D.C.?",
+        a: "Ask whether electric, gas, water, and trash are separately metered or allocated by the building. Allocation formulas should be described in writing.",
       },
     ],
   },
