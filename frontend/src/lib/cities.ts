@@ -429,6 +429,14 @@ export const cities: City[] = [
         heading: "Notice, renewals, and rent changes",
         body: "Confirm how renewal and rent-change notices must be delivered (email, portal, certified mail) and the exact day-count windows. Vague “management may increase rent upon renewal” language should be pinned to a written notice period before you rely on verbal assurances.",
       },
+      {
+        heading: "Security deposits and move-out documentation",
+        body: "Before signing, ask how the deposit is held, what deductions are claimed most often, and what move-out cleaning or patching standards the building expects. In D.C. apartments with elevators, loading docks, or managed move windows, small rule violations can turn into extra charges if the lease and building packet are vague.",
+      },
+      {
+        heading: "Rent control, addenda, and building packets",
+        body: "Some D.C. renters receive a short lease plus a long packet of building rules, utility disclosures, and optional addenda. Treat the packet as part of the deal. If the building mentions rent-control status, condo rules, or separate parking documents, read those before you rely on a summary from a broker or leasing agent.",
+      },
     ],
     faqs: [
       {
@@ -446,6 +454,10 @@ export const cities: City[] = [
       {
         q: "What should I check about utilities in Washington, D.C.?",
         a: "Ask whether electric, gas, water, and trash are separately metered or allocated by the building. Allocation formulas should be described in writing.",
+      },
+      {
+        q: "What move-out costs catch D.C. renters off guard?",
+        a: "Cleaning, wall patching, elevator reservations, parking access devices, and loading-dock rules can all affect move-out cost. Read both the lease and any building packet for those details.",
       },
     ],
   },

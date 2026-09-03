@@ -112,12 +112,26 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
               Review my lease for $9.99
             </Link>
             {guide.slug === "how-to-review-a-lease-agreement" ? (
-              <Link
-                href="/rental-lease-agreement-review"
-                className="inline-block rounded-full border border-slate-300 bg-white px-6 py-3 font-bold text-slate-800 hover:bg-slate-50"
-              >
-                Online rental lease review
-              </Link>
+              <>
+                <Link
+                  href="/rental-lease-agreement-review"
+                  className="inline-block rounded-full border border-slate-300 bg-white px-6 py-3 font-bold text-slate-800 hover:bg-slate-50"
+                >
+                  Online rental lease review
+                </Link>
+                <Link
+                  href="/lease-review-checklist"
+                  className="inline-block rounded-full border border-slate-300 bg-white px-6 py-3 font-bold text-slate-800 hover:bg-slate-50"
+                >
+                  Free lease checklist
+                </Link>
+                <Link
+                  href="/guides/fees-and-charges"
+                  className="inline-block rounded-full border border-slate-300 bg-white px-6 py-3 font-bold text-slate-800 hover:bg-slate-50"
+                >
+                  Lease fees explained
+                </Link>
+              </>
             ) : null}
           </div>
         </aside>

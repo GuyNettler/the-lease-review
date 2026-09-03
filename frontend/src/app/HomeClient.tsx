@@ -60,6 +60,26 @@ export default function HomeClient() {
               One-time payment · If analysis fails you are not charged · Files deleted after
               processing
             </p>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-700">
+              <Link
+                href="/guides/how-to-review-a-lease-agreement"
+                className="font-semibold text-primary hover:underline"
+              >
+                How to review a lease
+              </Link>
+              <Link
+                href="/guides/fees-and-charges"
+                className="font-semibold text-primary hover:underline"
+              >
+                Lease fees explained
+              </Link>
+              <Link
+                href="/guides/automatic-renewal"
+                className="font-semibold text-primary hover:underline"
+              >
+                Automatic renewal guide
+              </Link>
+            </div>
           </div>
           <div className="animate-fade-up relative flex justify-center md:justify-end" style={{ animationDelay: "120ms" }}>
             <img
@@ -258,6 +278,26 @@ export default function HomeClient() {
                 {label} →
               </Link>
             ))}
+          </div>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Link
+              href="/guides/dangerous-lease-clauses"
+              className="font-semibold text-primary hover:underline"
+            >
+              Dangerous lease clauses
+            </Link>
+            <Link
+              href="/guides/roommates-and-subletting"
+              className="font-semibold text-primary hover:underline"
+            >
+              Roommates and subletting
+            </Link>
+            <Link
+              href="/guides/lawyer-vs-lease-review"
+              className="font-semibold text-primary hover:underline"
+            >
+              Lawyer vs lease review
+            </Link>
           </div>
         </div>
       </section>

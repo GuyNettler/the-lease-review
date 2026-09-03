@@ -31,6 +31,10 @@ export const guides: Guide[] = [
         body: "Learning how to read a lease agreement starts with structure, not every sentence on page one. First pass: find the parties, address, term dates, rent amount, and signature pages. Second pass: highlight every dollar amount, deadline, and “tenant shall” duty. Third pass: read addenda and anything about deposits, renewals, early exit, and repairs. Mark unclear lines in the margin and turn them into written questions — that is how to read a lease without getting lost in legalese.",
       },
       {
+        heading: "How to read a lease agreement step by step",
+        body: "If you searched “how to read a lease agreement” or “how to read a lease,” use this simple order: names and address first, dates second, every fee third, deposit rules fourth, renewal notice fifth, early termination sixth, repairs and entry seventh, then every addendum. Reading in that order keeps you from spending 20 minutes on boilerplate before you identify the clauses that actually affect money and flexibility.",
+      },
+      {
         heading: "What reviewing a lease actually means",
         body: "A lease review is not about memorizing legal jargon. It means checking (1) what you pay every month and at move-in, (2) how you can leave or renew, (3) who is responsible for repairs and damages, and (4) whether any clause is vague enough to surprise you later. Skim for structure first, then re-read money and exit sections carefully. When people search how to review a lease agreement, this is the checklist they need.",
       },
@@ -83,6 +87,10 @@ export const guides: Guide[] = [
       {
         q: "How do I read a lease agreement without missing fees?",
         a: "Do three passes: structure (who, where, when), money (every dollar and deadline), then risk (renewals, exit, repairs, addenda). Highlight fees that sit outside base rent — amenities, parking, pets, trash, and admin charges often hide in riders.",
+      },
+      {
+        q: "How do I read a lease step by step?",
+        a: "Start with names, address, dates, and signatures. Then total rent plus every fee, read deposit rules, find renewal notice deadlines, check early-termination language, and only then read repairs, guests, pets, and addenda. That order surfaces the biggest risks first.",
       },
       {
         q: "What should I look for when I review a rental lease?",
