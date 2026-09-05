@@ -131,6 +131,18 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                 >
                   Lease fees explained
                 </Link>
+                <Link
+                  href="/cities/washington-dc"
+                  className="inline-block rounded-full border border-slate-300 bg-white px-6 py-3 font-bold text-slate-800 hover:bg-slate-50"
+                >
+                  Washington, D.C. lease notes
+                </Link>
+                <Link
+                  href="/cities/philadelphia"
+                  className="inline-block rounded-full border border-slate-300 bg-white px-6 py-3 font-bold text-slate-800 hover:bg-slate-50"
+                >
+                  Philadelphia lease notes
+                </Link>
               </>
             ) : null}
           </div>

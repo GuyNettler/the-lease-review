@@ -104,6 +104,10 @@ export const guides: Guide[] = [
         q: "Can I review a lease agreement online?",
         a: "Yes. You can follow this checklist yourself, or upload the PDF for a one-time plain-English structured pass, then still raise open points with the landlord or an attorney.",
       },
+      {
+        q: "Should I use a city-specific lease page too?",
+        a: "Yes if you are signing in a major metro. Local notes on fees, deposits, and building rules complement this national checklist — start with Washington, D.C. or Philadelphia if those are your markets.",
+      },
     ],
     ctaNote:
       "Want a free look at the report format first? Open the sample. Ready for your PDF? Get an online rental lease agreement review for $9.99 — or keep using this checklist yourself.",

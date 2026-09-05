@@ -9,7 +9,7 @@ const siteUrl = "https://www.theleasereview.com";
 
 export const metadata: Metadata = {
   title: "Online Rental Lease Review Service | $9.99",
-  description: `Upload your U.S. apartment lease PDF for a plain-English structured rental lease agreement review (${PRICE_LINE}). Free sample report available. Prefer a DIY checklist first? See our free step-by-step guide.`,
+  description: `Upload your U.S. apartment lease PDF for a plain-English structured rental lease agreement review (${PRICE_LINE}). Free sample report available. Looking for a DIY checklist instead? Open the free guide.`,
   keywords: [
     "rental lease agreement review",
     "lease agreement review online",
