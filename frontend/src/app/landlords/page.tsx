@@ -5,21 +5,21 @@ import SiteFooter from "@/components/SiteFooter";
 import { PRICE_LABEL, PRICE_ONE_TIME } from "@/lib/pricing";
 
 export const metadata: Metadata = {
-  title: "Landlord Lease Review | Clearer Agreements for Tenants",
+  title: "For Landlords & Property Managers | Lease Clarity",
   description:
-    "Landlord and property manager lease review: help applicants understand deposits, fees, renewals, and responsibilities before signing. Plain-English informational review for $9.99.",
+    "Help landlords and property managers present clearer residential lease packets: deposits, fees, renewals, and responsibilities — so applicants sign with fewer surprises. $9.99 informational review.",
   keywords: [
-    "landlord lease review",
-    "property manager lease review",
-    "lease clarity for landlords",
-    "residential lease for landlords",
-    "tenant lease explanation landlords",
+    "landlord lease clarity",
+    "property manager lease packet",
+    "lease fees for landlords",
+    "security deposit language landlords",
+    "residential lease for property managers",
   ],
   alternates: { canonical: "/landlords" },
   openGraph: {
-    title: "Landlord lease review | The Lease Review",
+    title: "For landlords & property managers | The Lease Review",
     description:
-      "Clearer leases for landlords and managers — fewer surprises at signing. Informational review for $9.99.",
+      "Clearer lease packets for landlords and managers — fewer surprises at signing. Informational review for $9.99.",
     url: "/landlords",
   },
 };
@@ -37,11 +37,15 @@ const faqs = [
     q: "What should landlords make obvious in a lease packet?",
     a: "Total monthly cost beyond base rent, deposit rules, renewal notice windows, early termination fees, repair duties, and any condo/HOA addenda.",
   },
-  {
-    q: "Can property managers share a sample report with applicants?",
-    a: "Yes. Point applicants to the free sample report so they see the format, then they can upload the actual lease if they want a structured pass.",
-  },
-];
+      {
+        q: "Can property managers share a sample report with applicants?",
+        a: "Yes. Point applicants to the free sample report so they see the format, then they can upload the actual lease if they want a structured pass.",
+      },
+      {
+        q: "What makes a landlord-facing lease packet easier to sign?",
+        a: "Put fees, deposit rules, renewal notice, and building addenda where applicants can find them quickly. Ambiguity creates last-minute questions and walkaways.",
+      },
+    ];
 
 export default function LandlordsPage() {
   const faqLd = {
@@ -68,7 +72,7 @@ export default function LandlordsPage() {
             Landlords & managers
           </p>
           <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-            Landlord lease review for clearer signings
+            Clearer lease packets for landlords and managers
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-700">
             When applicants understand deposits, fees, renewals, and responsibilities up front,
@@ -141,11 +145,8 @@ export default function LandlordsPage() {
             deposits
           </Link>
           {" · "}
-          <Link
-            href="/guides/how-to-review-a-lease-agreement"
-            className="font-semibold text-primary hover:underline"
-          >
-            how to review a lease
+          <Link href="/guides/automatic-renewal" className="font-semibold text-primary hover:underline">
+            renewals
           </Link>
           {" · "}
           <Link href="/contact" className="font-semibold text-primary hover:underline">
