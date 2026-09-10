@@ -42,9 +42,12 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     "@type": "Article",
     headline: guide.title,
     description: guide.description,
+    ...(guide.quickAnswer ? { abstract: guide.quickAnswer } : {}),
+    inLanguage: "en-US",
+    url: `https://www.theleasereview.com/guides/${guide.slug}`,
     dateModified: new Date().toISOString().slice(0, 10),
-    author: { "@type": "Organization", name: "The Lease Review" },
-    publisher: { "@type": "Organization", name: "The Lease Review" },
+    author: { "@type": "Organization", name: "The Lease Review", url: "https://www.theleasereview.com/" },
+    publisher: { "@type": "Organization", name: "The Lease Review", url: "https://www.theleasereview.com/" },
   };
   const faqLd =
     guide.faqs && guide.faqs.length > 0
@@ -72,6 +75,15 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         </Link>
         <h1 className="mt-6 text-4xl font-extrabold text-slate-900">{guide.title}</h1>
         <p className="mt-4 text-lg text-slate-700">{guide.intro}</p>
+        {guide.quickAnswer ? (
+          <aside
+            aria-label="Quick answer"
+            className="mt-6 rounded-2xl border border-primary/20 bg-primary/5 p-5"
+          >
+            <p className="text-xs font-bold uppercase tracking-wide text-primary">Quick answer</p>
+            <p className="mt-2 text-base leading-relaxed text-slate-800">{guide.quickAnswer}</p>
+          </aside>
+        ) : null}
 
         <div className="mt-10 space-y-8">
           {guide.sections.map((section) => (

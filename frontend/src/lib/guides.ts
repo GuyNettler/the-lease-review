@@ -8,6 +8,8 @@ export type Guide = {
   description: string;
   keywords: string;
   intro: string;
+  /** 1–2 sentence direct answer, shown as a "Quick answer" box and used as Article.abstract (GEO / AI answers). */
+  quickAnswer?: string;
   sections: GuideSection[];
   ctaNote: string;
   category: GuideCategory;
@@ -23,6 +25,8 @@ export const guides: Guide[] = [
       "How to review a lease agreement step by step — and how to read a lease before you sign: rent, fees, deposits, renewals, early termination, repairs, and red flags in a U.S. apartment lease.",
     keywords:
       "how to review a lease agreement, how to review a lease agreement before signing, how to read a lease agreement, how to read a lease, how to review a lease, review lease agreement step by step, how to check a rental lease, what to look for in a lease",
+    quickAnswer:
+      "To review a lease agreement before signing, read it in this order: parties and address, term dates, every fee and dollar amount, security deposit rules, renewal notice window, early termination terms, repairs and entry rights, then every addendum. Write down anything vague and get the answer in writing before you sign.",
     intro:
       "How to review a lease agreement before signing is a skill every renter needs. Apartment leases are long, fees hide in addenda, and one missed notice window can lock you into another year. Follow this step-by-step order, write down questions, then raise them with the landlord — or upload the PDF for a plain-English structured pass. Prefer a free look at the report format first? Open the sample demo.",
     sections: [
@@ -120,6 +124,8 @@ export const guides: Guide[] = [
       "Open-ended deposits, extreme early-termination fees, one-sided rent hikes, and vague repair duties — what to watch for in a U.S. apartment lease.",
     keywords:
       "dangerous lease clauses, unfair rental agreement terms, what to check before signing a lease",
+    quickAnswer:
+      "The most dangerous lease clauses are: open-ended or uncapped security deposit deductions, early-termination penalties of several months' rent with no duty to re-rent, rent increases 'at landlord's discretion', vague repair duties that shift building maintenance to the tenant, automatic renewal with a short notice window, and landlord entry without notice. Each should be capped, defined, or removed before signing.",
     intro:
       "Not every clause is “standard.” Some wording is common; some tilts risk heavily toward one party. Review these areas carefully before you commit.",
     sections: [
@@ -153,6 +159,8 @@ export const guides: Guide[] = [
     description:
       "Understand deposit amounts, deductions, return timelines, and move-out conditions in U.S. residential leases.",
     keywords: "security deposit clause, apartment deposit return, rental deposit deductions",
+    quickAnswer:
+      "A good security deposit clause states the exact amount, where it is held, what can be deducted (unpaid rent and damage beyond normal wear, not routine cleaning or repainting), and the return deadline after move-out. Many U.S. states cap deposits and set return timelines; document move-in condition with dated photos.",
     intro:
       "Deposit disputes are common at move-out. Clear wording up front saves money and stress later.",
     sections: [
@@ -211,6 +219,8 @@ export const guides: Guide[] = [
     description:
       "What is a lease fee? Spot amenity, utility, pet, parking, late, and admin fees that sit outside base rent in U.S. leases.",
     keywords: "what is a lease fee, apartment fees besides rent, rental junk fees, lease late fees utilities, amenity fee apartment",
+    quickAnswer:
+      "A lease fee is any charge in a rental agreement beyond base rent — for example amenity, trash, utility-billing, pet, parking, admin, application, and late fees. Add every recurring fee to the monthly rent to get your true monthly cost, and list one-time fees separately as move-in cost.",
     intro:
       "Wondering what a lease fee is? Anything charged beyond base rent — trash, amenity, pet, parking, admin, or late fees — that changes what you actually pay. Map every recurring and one-time charge before you sign.",
     sections: [
@@ -244,6 +254,8 @@ export const guides: Guide[] = [
     description:
       "What happens if you miss a renewal deadline, how rent can change, and how to decline renewal in writing.",
     keywords: "automatic lease renewal, month to month conversion, lease renewal deadline",
+    quickAnswer:
+      "An automatic renewal clause extends your lease — either month-to-month or for another full term — unless you give written notice by a deadline, commonly 30–60 days before the end date. Find the notice window and delivery method in the lease, calendar the date, and send notice in writing.",
     intro:
       "Many leases convert to month-to-month or renew for another term if you miss a notice window. Calendar that date early.",
     sections: [
@@ -269,6 +281,8 @@ export const guides: Guide[] = [
     description:
       "When an AI lease summary helps, when you still need a licensed attorney, and how the two can work together.",
     keywords: "lease review vs lawyer, do I need a lawyer for a lease, cheap lease review",
+    quickAnswer:
+      "Use a $9.99 AI lease review to quickly map fees, deadlines, deposit rules, and one-sided clauses in a standard apartment lease. Use a licensed attorney when there is a dispute, an unusual or commercial lease, a rent-controlled or subsidized unit, or when you need advice on your legal rights. The two are complementary, not substitutes.",
     intro:
       "A structured informational review helps you see fees, deadlines, and one-sided wording quickly. It is not a substitute for legal advice on your rights.",
     sections: [
