@@ -49,6 +49,23 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     author: { "@type": "Organization", name: "The Lease Review", url: "https://www.theleasereview.com/" },
     publisher: { "@type": "Organization", name: "The Lease Review", url: "https://www.theleasereview.com/" },
   };
+  const howToLd =
+    guide.howToSteps && guide.howToSteps.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: guide.title,
+          description: guide.quickAnswer ?? guide.description,
+          inLanguage: "en-US",
+          step: guide.howToSteps.map((s, i) => ({
+            "@type": "HowToStep",
+            position: i + 1,
+            name: s.name,
+            text: s.text,
+            url: `https://www.theleasereview.com/guides/${guide.slug}#step-${i + 1}`,
+          })),
+        }
+      : null;
   const faqLd =
     guide.faqs && guide.faqs.length > 0
       ? {
@@ -69,6 +86,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       {faqLd ? (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       ) : null}
+      {howToLd ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }} />
+      ) : null}
       <article className="mx-auto max-w-3xl px-6 py-14">
         <Link href="/guides" className="font-semibold text-primary">
           ← All guides
@@ -83,6 +103,29 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             <p className="text-xs font-bold uppercase tracking-wide text-primary">Quick answer</p>
             <p className="mt-2 text-base leading-relaxed text-slate-800">{guide.quickAnswer}</p>
           </aside>
+        ) : null}
+
+        {guide.howToSteps && guide.howToSteps.length > 0 ? (
+          <section className="mt-10">
+            <h2 className="text-2xl font-bold text-slate-900">Step by step</h2>
+            <ol className="mt-4 space-y-3">
+              {guide.howToSteps.map((step, i) => (
+                <li
+                  key={step.name}
+                  id={`step-${i + 1}`}
+                  className="flex gap-4 rounded-2xl border border-slate-200 p-4"
+                >
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <h3 className="font-bold text-slate-900">{step.name}</h3>
+                    <p className="mt-1 leading-relaxed text-slate-700">{step.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </section>
         ) : null}
 
         <div className="mt-10 space-y-8">

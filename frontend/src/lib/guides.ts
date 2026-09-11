@@ -10,6 +10,8 @@ export type Guide = {
   intro: string;
   /** 1–2 sentence direct answer, shown as a "Quick answer" box and used as Article.abstract (GEO / AI answers). */
   quickAnswer?: string;
+  /** Ordered steps → rendered as a numbered list and emitted as HowTo JSON-LD. */
+  howToSteps?: { name: string; text: string }[];
   sections: GuideSection[];
   ctaNote: string;
   category: GuideCategory;
@@ -27,6 +29,36 @@ export const guides: Guide[] = [
       "how to review a lease agreement, how to review a lease agreement before signing, how to read a lease agreement, how to read a lease, how to review a lease, review lease agreement step by step, how to check a rental lease, what to look for in a lease",
     quickAnswer:
       "To review a lease agreement before signing, read it in this order: parties and address, term dates, every fee and dollar amount, security deposit rules, renewal notice window, early termination terms, repairs and entry rights, then every addendum. Write down anything vague and get the answer in writing before you sign.",
+    howToSteps: [
+      {
+        name: "Confirm the parties, address, and term",
+        text: "Check that the landlord or management company named matches who you have been dealing with, the unit number is exact, and the start and end dates are what you agreed.",
+      },
+      {
+        name: "Highlight every dollar amount",
+        text: "Base rent, late fee and grace period, and every recurring fee (trash, amenity, utility billing, pet, parking). Add recurring fees to rent to get your true monthly cost.",
+      },
+      {
+        name: "Read the security deposit clause",
+        text: "Amount, where it is held, what can be deducted, and the return deadline after move-out. Photograph the unit at move-in and keep the photos dated.",
+      },
+      {
+        name: "Find the renewal and notice window",
+        text: "Look for automatic renewal or month-to-month conversion, the notice deadline (often 30–60 days), and how notice must be delivered. Put the date on your calendar.",
+      },
+      {
+        name: "Check early termination and subletting",
+        text: "What it costs to leave early, whether the landlord must try to re-rent, and whether roommates, guests, and subletting are allowed or require written approval.",
+      },
+      {
+        name: "Review repairs, entry, and one-sided clauses",
+        text: "Who fixes what and how fast, how much notice the landlord must give before entering, and any clause that lets the landlord change terms 'at their discretion'.",
+      },
+      {
+        name: "Read every addendum, then ask in writing",
+        text: "Rules, fee schedules, and pet or parking addenda are part of the lease. Turn each unclear line into a written question and get the answer in writing — or upload the PDF for a structured pass before you sign.",
+      },
+    ],
     intro:
       "How to review a lease agreement before signing is a skill every renter needs. Apartment leases are long, fees hide in addenda, and one missed notice window can lock you into another year. Follow this step-by-step order, write down questions, then raise them with the landlord — or upload the PDF for a plain-English structured pass. Prefer a free look at the report format first? Open the sample demo.",
     sections: [
