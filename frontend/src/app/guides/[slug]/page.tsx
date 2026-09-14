@@ -45,6 +45,10 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     ...(guide.quickAnswer ? { abstract: guide.quickAnswer } : {}),
     inLanguage: "en-US",
     url: `https://www.theleasereview.com/guides/${guide.slug}`,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "[aria-label='Quick answer']"],
+    },
     dateModified: new Date().toISOString().slice(0, 10),
     author: { "@type": "Organization", name: "The Lease Review", url: "https://www.theleasereview.com/" },
     publisher: { "@type": "Organization", name: "The Lease Review", url: "https://www.theleasereview.com/" },
@@ -64,6 +68,36 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             text: s.text,
             url: `https://www.theleasereview.com/guides/${guide.slug}#step-${i + 1}`,
           })),
+        }
+      : null;
+  const definedTermLd =
+    guide.slug === "fees-and-charges"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "DefinedTermSet",
+          name: "Lease, leasing, and letting fees",
+          url: "https://www.theleasereview.com/guides/fees-and-charges",
+          inLanguage: "en-US",
+          hasDefinedTerm: [
+            {
+              "@type": "DefinedTerm",
+              name: "lease fee",
+              description:
+                "Any charge in a U.S. residential lease besides base rent, including amenity, trash, pet, parking, admin, application, and late fees.",
+            },
+            {
+              "@type": "DefinedTerm",
+              name: "letting fee",
+              description:
+                "UK/Ireland term for an agent or landlord charge to let a property; in U.S. search it usually maps to a lease fee or leasing fee besides rent.",
+            },
+            {
+              "@type": "DefinedTerm",
+              name: "leasing fee",
+              description:
+                "A one-time or recurring charge tied to signing or administering a lease, separate from monthly rent.",
+            },
+          ],
         }
       : null;
   const faqLd =
@@ -88,6 +122,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       ) : null}
       {howToLd ? (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }} />
+      ) : null}
+      {definedTermLd ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(definedTermLd) }} />
       ) : null}
       <article className="mx-auto max-w-3xl px-6 py-14">
         <Link href="/guides" className="font-semibold text-primary">

@@ -55,7 +55,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${base}/guides/${slug}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
-      priority: slug === "how-to-review-a-lease-agreement" ? 0.96 : 0.75,
+      priority:
+        slug === "how-to-review-a-lease-agreement"
+          ? 0.96
+          : slug === "fees-and-charges"
+            ? 0.9
+            : 0.75,
     })),
     ...cities.map(({ slug }) => ({
       url: `${base}/cities/${slug}`,

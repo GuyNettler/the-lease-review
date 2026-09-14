@@ -22,9 +22,9 @@ export const guides: Guide[] = [
   {
     slug: "how-to-review-a-lease-agreement",
     category: "guide",
-    title: "How to Review a Lease Agreement Before Signing",
+    title: "How to Review a Lease Agreement (and How to Read One)",
     description:
-      "How to review a lease agreement step by step — and how to read a lease before you sign: rent, fees, deposits, renewals, early termination, repairs, and red flags in a U.S. apartment lease.",
+      "How to review a lease agreement before signing — and how to read a lease step by step: rent, fees, deposits, renewals, early termination, repairs, and red flags in a U.S. apartment lease.",
     keywords:
       "how to review a lease agreement, how to review a lease agreement before signing, how to read a lease agreement, how to read a lease, how to review a lease, review lease agreement step by step, how to check a rental lease, what to look for in a lease",
     quickAnswer:
@@ -116,6 +116,10 @@ export const guides: Guide[] = [
       },
     ],
     faqs: [
+      {
+        q: "How do I read a lease agreement?",
+        a: "Read it in this order: parties and address, term dates, every fee and dollar amount, security deposit rules, renewal notice window, early termination, repairs and entry, then every addendum. Write down anything vague and get the answer in writing before you sign.",
+      },
       {
         q: "How do I review a lease agreement before signing?",
         a: "Confirm parties, address, and dates; add up all monthly fees; check deposit and move-out rules; calendar renewal notice windows; read early-termination terms; note repairs, entry, and pets; then read every addendum. Write questions down and get answers in writing before you sign.",
@@ -247,18 +251,27 @@ export const guides: Guide[] = [
   {
     slug: "fees-and-charges",
     category: "guide",
-    title: "What is a lease fee? Rental fees and charges explained",
+    title: "What is a lease fee? Letting fee, leasing fee, and apartment charges",
     description:
-      "What is a lease fee? Spot amenity, utility, pet, parking, late, and admin fees that sit outside base rent in U.S. leases.",
-    keywords: "what is a lease fee, apartment fees besides rent, rental junk fees, lease late fees utilities, amenity fee apartment",
+      "What is a lease fee, letting fee, or leasing fee? Any charge in a U.S. rental besides base rent — amenity, trash, pet, parking, admin, and late fees — and how to add them up before you sign.",
+    keywords:
+      "what is a lease fee, lease fee, letting fee, leasing fee, define letting fee, apartment fees besides rent, rental junk fees, lease late fees utilities, amenity fee apartment",
     quickAnswer:
-      "A lease fee is any charge in a rental agreement beyond base rent — for example amenity, trash, utility-billing, pet, parking, admin, application, and late fees. Add every recurring fee to the monthly rent to get your true monthly cost, and list one-time fees separately as move-in cost.",
+      "A lease fee (sometimes called a leasing fee or, in UK English, a letting fee) is any charge in a rental agreement beyond base rent — amenity, trash, utility-billing, pet, parking, admin, application, and late fees. Add every recurring fee to monthly rent for your true cost; list one-time fees as move-in cost.",
     intro:
-      "Wondering what a lease fee is? Anything charged beyond base rent — trash, amenity, pet, parking, admin, or late fees — that changes what you actually pay. Map every recurring and one-time charge before you sign.",
+      "Wondering what a lease fee is? Anything charged beyond base rent — trash, amenity, pet, parking, admin, or late fees — that changes what you actually pay. The same idea shows up as “leasing fee” or “letting fee.” Map every recurring and one-time charge before you sign.",
     sections: [
       {
         heading: "What is a lease fee?",
         body: "A lease fee is typically any charge in the rental agreement other than base rent: community/amenity fees, trash or valet, technology packages, parking, pet rent, application or admin fees, and late fees. List them from the lease and addenda, then total the monthly and move-in amounts.",
+      },
+      {
+        heading: "Lease fee vs letting fee vs leasing fee",
+        body: "In U.S. apartment leases, “lease fee” and “leasing fee” usually mean extra charges besides rent, or sometimes a one-time admin charge at move-in. “Letting fee” is the UK/Ireland term for an agent fee to let a property — often illegal or capped there, but U.S. listings still use “letting fee” in search. If you searched “define letting fee” or “leasing fee,” treat it the same way: find the dollar amount, whether it is one-time or monthly, and whether it is refundable.",
+      },
+      {
+        heading: "How to calculate true monthly cost",
+        body: "Write two columns: recurring (rent + trash + amenity + parking + pet + utility admin) and one-time (application, admin, move-in, keys). Recurring ÷ 1 is your real monthly cost. One-time fees are move-in cash, not rent. If a fee can rise mid-lease, treat the current amount as a floor, not a cap.",
       },
       {
         heading: "Recurring add-ons",
@@ -275,6 +288,24 @@ export const guides: Guide[] = [
       {
         heading: "Refundable vs non-refundable",
         body: "Pet deposits, keys, and “admin” charges are often non-refundable. Confirm in writing.",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is a lease fee?",
+        a: "Any charge in a rental lease besides base rent — for example amenity, trash, pet, parking, admin, application, and late fees. Add recurring fees to rent to get true monthly cost.",
+      },
+      {
+        q: "What is a letting fee?",
+        a: "A letting fee is the UK/Ireland name for an agent or landlord charge to let a property. In U.S. search results the same idea is usually called a lease fee or leasing fee: extra money besides rent, either monthly or at move-in.",
+      },
+      {
+        q: "What is a leasing fee?",
+        a: "A leasing fee is typically a one-time or recurring charge tied to signing or administering the lease, separate from monthly rent. Check the lease and addenda for the exact amount and whether it is refundable.",
+      },
+      {
+        q: "Are lease fees the same as rent?",
+        a: "No. Rent is the base monthly amount for the unit. Lease fees sit on top — they can be monthly (amenity, parking) or one-time (application, admin).",
       },
     ],
     ctaNote: "Upload the lease to list fees and charges in plain English.",

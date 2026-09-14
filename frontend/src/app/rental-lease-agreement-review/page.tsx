@@ -8,8 +8,8 @@ const path = "/rental-lease-agreement-review";
 const siteUrl = "https://www.theleasereview.com";
 
 export const metadata: Metadata = {
-  title: "Online Rental Lease Review Service | $9.99",
-  description: `Upload your U.S. apartment lease PDF for a plain-English structured rental lease agreement review (${PRICE_LINE}). Free sample report available. Looking for a DIY checklist instead? Open the free guide.`,
+  title: "Online Rental Lease Review Service | $9.99 upload",
+  description: `Paid online service: upload a U.S. apartment lease PDF for a plain-English structured review (${PRICE_LINE}, one-time). Not a how-to article — the free DIY guide is separate. Free sample report available.`,
   keywords: [
     "rental lease agreement review",
     "lease agreement review online",
@@ -50,6 +50,10 @@ const points = [
 ];
 
 const faqs = [
+  {
+    q: "Is this a how-to guide for reviewing a lease?",
+    a: "No. This page is the $9.99 paid upload service. The free step-by-step how-to (how to review and how to read a lease agreement) is a separate guide.",
+  },
   {
     q: "What is a rental lease agreement review?",
     a: "It is a structured, plain-English look at the residential lease you plan to sign — highlighting fees, deposits, renewals, and clauses that often surprise renters. It is informational, not legal advice.",
@@ -123,9 +127,17 @@ export default function RentalLeaseAgreementReviewPage() {
           <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
             Online rental lease review service
           </h1>
+          <p className="mt-3 text-sm font-semibold text-primary">
+            Paid upload service · {PRICE_ONE_TIME} · not a how-to article
+          </p>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-700">
-            Upload your U.S. apartment or house rental agreement and get a clear, structured review
-            of the terms that affect cost and flexibility — before you sign. {PRICE_ONE_TIME}.
+            This page is the paid {PRICE_LABEL} upload: send your U.S. apartment or house rental
+            agreement and get a structured, plain-English review of the terms that affect cost and
+            flexibility — before you sign. If you want to review a lease yourself first, use the{" "}
+            <Link href="/guides/how-to-review-a-lease-agreement" className="font-semibold text-primary underline">
+              free how-to guide
+            </Link>
+            .
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
