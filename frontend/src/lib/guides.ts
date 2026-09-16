@@ -251,9 +251,9 @@ export const guides: Guide[] = [
   {
     slug: "fees-and-charges",
     category: "guide",
-    title: "What is a lease fee? Letting fee, leasing fee, and apartment charges",
+    title: "Lease Fee Meaning: What a Lease, Leasing, or Letting Fee Is",
     description:
-      "What is a lease fee, letting fee, or leasing fee? Any charge in a U.S. rental besides base rent — amenity, trash, pet, parking, admin, and late fees — and how to add them up before you sign.",
+      "Lease fee meaning in a U.S. apartment lease: any charge besides base rent. Also covers leasing fee and letting fee — what they are, how they differ, and how to add them up before you sign.",
     keywords:
       "what is a lease fee, lease fee, letting fee, leasing fee, define letting fee, apartment fees besides rent, rental junk fees, lease late fees utilities, amenity fee apartment",
     quickAnswer:
@@ -261,6 +261,10 @@ export const guides: Guide[] = [
     intro:
       "Wondering what a lease fee is? Anything charged beyond base rent — trash, amenity, pet, parking, admin, or late fees — that changes what you actually pay. The same idea shows up as “leasing fee” or “letting fee.” Map every recurring and one-time charge before you sign.",
     sections: [
+      {
+        heading: "Lease fee meaning",
+        body: "Lease fee meaning: money you pay under the lease that is not base rent. In search, people also type “lease fee meaning” or “what is a lease fee.” Same answer — amenity, trash, pet, parking, admin, application, and late fees. If the lease uses “leasing fee,” it is usually a one-time or admin charge at signing.",
+      },
       {
         heading: "What is a lease fee?",
         body: "A lease fee is typically any charge in the rental agreement other than base rent: community/amenity fees, trash or valet, technology packages, parking, pet rent, application or admin fees, and late fees. List them from the lease and addenda, then total the monthly and move-in amounts.",
@@ -291,6 +295,14 @@ export const guides: Guide[] = [
       },
     ],
     faqs: [
+      {
+        q: "What does lease fee mean?",
+        a: "It means any charge in the rental agreement besides base rent. Add monthly fees to rent for true cost; treat application and admin fees as move-in cash.",
+      },
+      {
+        q: "What is lease fee meaning in an apartment lease?",
+        a: "In U.S. apartments, lease fee meaning is extra charges on top of rent — not a legal term of art. Read the lease and addenda for each dollar amount.",
+      },
       {
         q: "What is a lease fee?",
         a: "Any charge in a rental lease besides base rent — for example amenity, trash, pet, parking, admin, application, and late fees. Add recurring fees to rent to get true monthly cost.",
