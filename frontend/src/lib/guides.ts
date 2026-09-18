@@ -117,6 +117,10 @@ export const guides: Guide[] = [
     ],
     faqs: [
       {
+        q: "How do I read an apartment lease?",
+        a: "Use the same order as any U.S. residential lease: parties and unit number, dates, every fee besides rent, deposit rules, renewal notice, early termination, repairs and entry, then addenda (parking, pets, rules). Write questions down before you sign.",
+      },
+      {
         q: "How do I read a lease agreement?",
         a: "Read it in this order: parties and address, term dates, every fee and dollar amount, security deposit rules, renewal notice window, early termination, repairs and entry, then every addendum. Write down anything vague and get the answer in writing before you sign.",
       },
@@ -295,6 +299,14 @@ export const guides: Guide[] = [
       },
     ],
     faqs: [
+      {
+        q: "What is leasing fee meaning?",
+        a: "Leasing fee meaning is the same idea as a lease fee: extra money besides rent, often a one-time admin or signing charge. Find the dollar amount in the lease or addenda and whether it is refundable.",
+      },
+      {
+        q: "What is a lease fee for an apartment?",
+        a: "In an apartment lease it is any charge besides base rent — amenity, trash, pet, parking, admin, application, and late fees. Add monthly fees to rent to get true monthly cost.",
+      },
       {
         q: "What does lease fee mean?",
         a: "It means any charge in the rental agreement besides base rent. Add monthly fees to rent for true cost; treat application and admin fees as move-in cash.",
