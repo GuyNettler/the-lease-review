@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { PRICE_ONE_TIME, PRICE_USD } from "@/lib/pricing";
+import GoogleAdsTag from "@/components/GoogleAdsTag";
 import "./globals.css";
 
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans" });
@@ -111,6 +112,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body className={`${dmSans.variable} font-sans antialiased bg-white text-gray-900`}>
         {children}
+        <GoogleAdsTag />
         <Analytics />
       </body>
     </html>

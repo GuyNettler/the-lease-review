@@ -15,8 +15,7 @@ export default function DemoReportPage() {
 
   useEffect(() => {
     track("demo_view", { site: "theleasereview" });
-    const t = window.setTimeout(() => setReady(true), 1800);
-    return () => window.clearTimeout(t);
+    setReady(true);
   }, []);
 
   return (

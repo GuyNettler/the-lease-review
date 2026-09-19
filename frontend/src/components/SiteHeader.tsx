@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PRICE_LABEL } from "@/lib/pricing";
 
 const nav = [
   { href: "/demo", label: "Sample report" },
@@ -26,7 +27,7 @@ export default function SiteHeader() {
           href="/upload"
           className="rounded-full bg-primary px-5 py-2 text-sm font-bold text-white transition hover:bg-blue-700"
         >
-          Review my lease
+          Review my lease · {PRICE_LABEL}
         </Link>
       </div>
     </header>

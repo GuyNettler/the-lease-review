@@ -7,6 +7,9 @@ import { AlertTriangle, FileText, Loader2, ReceiptText, UploadCloud, Wand2 } fro
 import { signInAnonymouslyIfNeeded } from "@/firebaseClient";
 import PayPalButton from "@/components/PayPalButton";
 import { PRICE_LINE, PRICE_USD } from "@/lib/pricing";
+import { track, trackBeginCheckout } from "@/lib/analytics";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 
 type Severity = "high" | "medium" | "low";
 type Issue = {
@@ -137,6 +140,10 @@ export default function UploadPage() {
   }
 
   useEffect(() => {
+    track("upload_view", { site: "theleasereview" });
+  }, []);
+
+  useEffect(() => {
     signInAnonymouslyIfNeeded()
       .then((user) => setUserId(user.uid))
       .catch(() => setError("We could not connect you to the service. Please refresh and try again."))
@@ -240,8 +247,9 @@ export default function UploadPage() {
   }
 
   return (
-    <main className="min-h-screen bg-primary-light px-4 py-8">
-      <div className="mx-auto flex w-full max-w-xl flex-col items-start gap-6 text-left">
+    <main className="min-h-screen bg-primary-light text-left">
+      <SiteHeader />
+      <div className="mx-auto flex w-full max-w-xl flex-col items-start gap-6 px-4 py-8">
         <Link href="/" className="font-semibold text-primary">
           ← Back to home
         </Link>
@@ -326,6 +334,11 @@ export default function UploadPage() {
                   }
                   await persist(file);
                   setError(null);
+                  trackBeginCheckout({
+                    site: "theleasereview",
+                    amount: Number(PRICE_USD),
+                    currency: "USD",
+                  });
                   setProceedToPayment(true);
                 }}
               >
@@ -390,6 +403,7 @@ export default function UploadPage() {
           </section>
         )}
       </div>
+      <SiteFooter />
     </main>
   );
 }
