@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import {
-  CheckCircle2,
   FileSearch,
   FileText,
   ShieldCheck,
@@ -25,7 +24,7 @@ export default function HomeClient() {
         <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-blue-200/40 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-28 -left-16 h-72 w-72 rounded-full bg-sky-200/50 blur-3xl" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 md:grid-cols-2 md:py-24">
-          <div className="animate-fade-up flex flex-col items-start gap-6">
+          <div className="flex flex-col items-start gap-6">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-primary">
               The Lease Review
             </p>
@@ -33,55 +32,24 @@ export default function HomeClient() {
               Understand your apartment lease before you sign
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-slate-700">
-              Upload a PDF or Word lease and get a plain-English review of important clauses,
-              possible concerns, and questions to raise — in minutes.
+              Upload a PDF or Word lease and get a plain-English review of fees, deposits,
+              renewals, and red flags — in minutes.
             </p>
-            <div className="flex flex-wrap items-center gap-3">
-              <Link
-                href="/upload"
-                className="rounded-full bg-primary px-8 py-4 text-lg font-bold text-white shadow-lg shadow-blue-500/20 transition hover:bg-blue-700"
-              >
-                Get your review for $9.99
-              </Link>
-              <Link
-                href="/demo"
-                className="rounded-full border-2 border-primary bg-white px-8 py-4 text-lg font-bold text-primary transition hover:bg-blue-50"
-              >
-                Free sample report
-              </Link>
-              <Link
-                href="/guides/how-to-review-a-lease-agreement"
-                className="font-semibold text-slate-600 hover:underline"
-              >
-                How to review a lease
-              </Link>
-            </div>
+            <Link
+              href="/upload"
+              className="rounded-full bg-primary px-8 py-4 text-lg font-bold text-white shadow-lg shadow-blue-500/20 transition hover:bg-blue-700"
+            >
+              Get your review for $9.99
+            </Link>
+            <Link href="/demo" className="text-sm font-semibold text-primary hover:underline">
+              See a free sample report
+            </Link>
             <p className="text-sm text-slate-600">
               One-time payment · If analysis fails you are not charged · Files deleted after
               processing
             </p>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-700">
-              <Link
-                href="/guides/how-to-review-a-lease-agreement"
-                className="font-semibold text-primary hover:underline"
-              >
-                How to review a lease
-              </Link>
-              <Link
-                href="/guides/fees-and-charges"
-                className="font-semibold text-primary hover:underline"
-              >
-                Lease fees explained
-              </Link>
-              <Link
-                href="/guides/automatic-renewal"
-                className="font-semibold text-primary hover:underline"
-              >
-                Automatic renewal guide
-              </Link>
-            </div>
           </div>
-          <div className="animate-fade-up relative flex justify-center md:justify-end" style={{ animationDelay: "120ms" }}>
+          <div className="relative flex justify-center md:justify-end">
             <img
               src="/undraw_chat-with-ai_ir62.svg"
               alt="Illustration of reviewing documents with AI assistance"
@@ -91,24 +59,19 @@ export default function HomeClient() {
         </div>
       </section>
 
-      <section id="how-it-works" className="mx-auto max-w-6xl px-6 py-20">
+      <section id="how-it-works" className="mx-auto max-w-6xl px-6 py-16">
         <h2 className="text-3xl font-extrabold text-slate-900">How it works</h2>
-        <p className="mt-2 max-w-2xl text-slate-600">
-          A simple path from upload to a structured summary you can act on.
-        </p>
-        <div className="mt-8 grid gap-5 md:grid-cols-4">
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
           <StepCard step={1} icon={<Upload />} title="Upload" description="PDF or Word lease plus your email." />
-          <StepCard step={2} icon={<ShieldCheck />} title="Pay once" description="$9.99 securely through PayPal." />
-          <StepCard step={3} icon={<Sparkles />} title="AI review" description="We extract and analyze key terms." />
-          <StepCard step={4} icon={<FileSearch />} title="Get results" description="Summary, concerns, and recommendations." />
+          <StepCard step={2} icon={<ShieldCheck />} title="Pay $9.99" description="One-time, securely through PayPal." />
+          <StepCard step={3} icon={<FileSearch />} title="Get results" description="A structured summary you can act on." />
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <h2 className="text-3xl font-extrabold text-slate-900">See what a lease review looks like</h2>
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <h2 className="text-3xl font-extrabold text-slate-900">See what a review looks like</h2>
         <p className="mt-2 max-w-2xl text-slate-600">
-          Static sample on a fictional lease — no upload, no payment. Your real report is built from
-          the file you upload.
+          Sample on a fictional lease — no upload, no payment.
         </p>
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {(DEMO_ANALYSIS.tenant_issues || []).slice(0, 2).map((item) => (
@@ -120,25 +83,14 @@ export default function HomeClient() {
             </div>
           ))}
         </div>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Link
-            href="/demo"
-            className="rounded-full border-2 border-primary bg-white px-6 py-3 font-bold text-primary transition hover:bg-blue-50"
-          >
-            Full sample report
-          </Link>
-          <Link
-            href="/upload"
-            className="rounded-full bg-primary px-6 py-3 font-bold text-white transition hover:bg-blue-700"
-          >
-            Upload my lease · $9.99
-          </Link>
-        </div>
+        <Link href="/demo" className="mt-6 inline-block text-sm font-semibold text-primary hover:underline">
+          Full sample report
+        </Link>
       </section>
 
-      <section className="bg-slate-50 px-6 py-20">
+      <section className="bg-slate-50 px-6 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-3xl font-extrabold">Built for renters who want clarity</h2>
+          <h2 className="text-3xl font-extrabold">Why people use it</h2>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             <FeatureCard
               icon={<FileText />}
@@ -146,189 +98,72 @@ export default function HomeClient() {
               description="Important terms presented in language you can actually use."
             />
             <FeatureCard
-              icon={<ShieldCheck />}
-              title="Privacy-minded"
-              description="Your uploaded document is deleted after processing."
+              icon={<Sparkles />}
+              title="Fast"
+              description="Most reviews finish in a few minutes and are emailed to you."
             />
             <FeatureCard
-              icon={<Sparkles />}
-              title="Fast and focused"
-              description="A practical starting point before you commit to a lease."
+              icon={<ShieldCheck />}
+              title="Private"
+              description="Your uploaded document is deleted after processing."
             />
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="grid items-center gap-10 md:grid-cols-2">
-          <div>
-            <h2 className="text-3xl font-extrabold">What renters usually miss</h2>
-            <ul className="mt-6 space-y-3 text-slate-700">
-              {[
-                "Security deposits and move-out deductions",
-                "Fees stacked on top of base rent",
-                "Early termination and reletting costs",
-                "Automatic renewal deadlines",
-                "Roommate, guest, and subletting limits",
-              ].map((item) => (
-                <li key={item} className="flex gap-2">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <Link
-              href="/guides/dangerous-lease-clauses"
-              className="mt-6 inline-block font-semibold text-primary hover:underline"
-            >
-              Read dangerous clauses guide →
-            </Link>
-          </div>
-          <div className="flex justify-center">
-            <img
-              src="/undraw_document-analysis_3c0y.svg"
-              alt="Document analysis illustration"
-              className="h-auto w-full max-w-sm"
-            />
-          </div>
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <h2 className="text-3xl font-extrabold">What renters say</h2>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          <TestimonialCard
+            quote="I was signing that night. It called out the renewal notice window I would have blown past."
+            name="Maya"
+            city="Austin"
+          />
+          <TestimonialCard
+            quote="Report hit my inbox in a few minutes. Made it obvious what to ask about pet rent and parking."
+            name="Chris"
+            city="Chicago"
+          />
+          <TestimonialCard
+            quote="First apartment with a roommate. We went through the red flags together before we both signed."
+            name="Priya"
+            city="Denver"
+          />
         </div>
       </section>
 
-      <section className="bg-primary-light px-6 py-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <h2 className="text-3xl font-extrabold">What renters say</h2>
-              <p className="mt-2 text-slate-600">Short notes from people who used the review before signing.</p>
-            </div>
-            <img
-              src="/undraw_testimonials_4c7y.svg"
-              alt=""
-              className="hidden h-auto w-40 sm:block"
-            />
-          </div>
-          <div className="grid gap-5 md:grid-cols-3">
-            <TestimonialCard
-              quote="I was signing that night. It called out the renewal notice window I would have blown past."
-              name="Maya"
-              city="Austin"
-            />
-            <TestimonialCard
-              quote="Report hit my inbox in a few minutes. Made it obvious what to ask about pet rent and parking — without reading 30 pages alone."
-              name="Chris"
-              city="Chicago"
-            />
-            <TestimonialCard
-              quote="First apartment with a roommate. We went through the red flags together before we both signed."
-              name="Priya"
-              city="Denver"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-3xl px-6 py-20 text-center">
-        <h2 className="text-3xl font-extrabold">One lease review, $9.99</h2>
-        <p className="mt-3 text-slate-700">
-          No subscription. Upload your agreement and get a clear review before signing.
-        </p>
-        <ul className="mx-auto mt-6 max-w-md space-y-2 text-left text-slate-700">
-          {[
-            "Important clauses highlighted by severity",
-            "Tenant and landlord concern sections",
-            "Email copy of your results",
-          ].map((item) => (
-            <li key={item} className="flex gap-2">
-              <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-              {item}
-            </li>
-          ))}
-        </ul>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <Link
-            href="/demo"
-            className="inline-block rounded-full border-2 border-primary bg-white px-8 py-4 font-bold text-primary transition hover:bg-blue-50"
-          >
-            Free sample report
-          </Link>
-          <Link
-            href="/upload"
-            className="inline-block rounded-full bg-primary px-8 py-4 font-bold text-white transition hover:bg-blue-700"
-          >
-            Start your review
-          </Link>
-        </div>
-      </section>
-
-      <section className="border-y border-blue-100 bg-white px-6 py-16">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="text-2xl font-extrabold">Explore by need</h2>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              ["Students & roommates", "/students"],
-              ["Signing today", "/signing-today"],
-              ["Landlords", "/landlords"],
-              ["City guides", "/cities"],
-            ].map(([label, href]) => (
-              <Link
-                key={href}
-                href={href}
-                className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 font-semibold text-slate-800 transition hover:border-primary hover:bg-primary-light"
-              >
-                {label} →
-              </Link>
-            ))}
-          </div>
-          <div className="mt-4 flex flex-wrap gap-3">
-            <Link
-              href="/guides/dangerous-lease-clauses"
-              className="font-semibold text-primary hover:underline"
-            >
-              Dangerous lease clauses
-            </Link>
-            <Link
-              href="/guides/roommates-and-subletting"
-              className="font-semibold text-primary hover:underline"
-            >
-              Roommates and subletting
-            </Link>
-            <Link
-              href="/guides/lawyer-vs-lease-review"
-              className="font-semibold text-primary hover:underline"
-            >
-              Lawyer vs lease review
-            </Link>
-          </div>
-        </div>
+      <section className="mx-auto max-w-3xl px-6 py-16 text-center">
+        <h2 className="text-3xl font-extrabold">Ready to review your lease?</h2>
+        <p className="mt-3 text-slate-700">$9.99 one-time. If analysis fails, you are not charged.</p>
+        <Link
+          href="/upload"
+          className="mt-8 inline-block rounded-full bg-primary px-8 py-4 font-bold text-white transition hover:bg-blue-700"
+        >
+          Get your review for $9.99
+        </Link>
       </section>
 
       <section className="bg-primary-light px-6 py-16">
         <div className="mx-auto max-w-3xl">
-          <h2 className="text-3xl font-extrabold">Frequently asked questions</h2>
+          <h2 className="text-3xl font-extrabold">FAQ</h2>
           <div className="mt-6 space-y-4">
             <details className="rounded-xl bg-white p-5 shadow-sm">
               <summary className="cursor-pointer font-bold">Is this legal advice?</summary>
               <p className="mt-2 text-slate-700">
-                No. The Lease Review provides informational analysis, not legal advice or a
-                lawyer-client relationship.
+                No. This is informational analysis, not legal advice.
               </p>
             </details>
             <details className="rounded-xl bg-white p-5 shadow-sm">
-              <summary className="cursor-pointer font-bold">What documents can I upload?</summary>
-              <p className="mt-2 text-slate-700">
-                PDF, DOC, and DOCX residential lease documents are supported.
-              </p>
+              <summary className="cursor-pointer font-bold">What can I upload?</summary>
+              <p className="mt-2 text-slate-700">PDF, DOC, and DOCX residential leases.</p>
             </details>
             <details className="rounded-xl bg-white p-5 shadow-sm">
-              <summary className="cursor-pointer font-bold">How fast do I get results?</summary>
+              <summary className="cursor-pointer font-bold">How fast is it?</summary>
               <p className="mt-2 text-slate-700">
                 Most reviews complete within a few minutes and are emailed to you.
               </p>
             </details>
           </div>
-          <Link href="/faq" className="mt-5 inline-block font-bold text-primary">
-            Read all FAQs →
-          </Link>
         </div>
       </section>
 
